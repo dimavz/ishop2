@@ -1,0 +1,20 @@
+{
+  "autoload":{
+    "psr-4":{
+      "ishop\\":"vendor/ishop",
+      "app\\":"app"
+    }
+  },
+  "require": {
+  },
+  "name": "ishop2/package_name",
+  "description": "my first shop",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Dmitry Zatulenka",
+      "email": "zatulenko@gmail.com"
+    }
+  ]
+}
