@@ -5,6 +5,10 @@
  * Date: 29.10.2018
  * Time: 17:41
  */
+require_once dirname(__DIR__).'/config/init.php';
+require_once LIBS.'/functions.php';
 
-echo "Это фронт-контроллер";
-var_dump($_SERVER['QUERY_STRING']);
+
+new \ishop\App();
+
+throw new Exception('Произошла ошибка',502);
