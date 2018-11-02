@@ -14,7 +14,7 @@ abstract class Controller
 	public $model; //Свойство для хранения модели.
 	public $prefix; //Свойство для хранения префикса.
 	public $data =[]; //Свойство для хранения данных.
-	public $meta =[]; //Свойство для хранения метаданных.
+	public $meta =['title'=>'', 'description'=>'','keywords'=>'']; //Свойство для хранения метаданных.
 	public $layout = LAYOUT; //Свойство для хранения макета страницы.
 
 	public function __construct($route)

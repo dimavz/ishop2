@@ -31,6 +31,7 @@ class Router
 
 	public static function dispathch($url)
 	{
+		$url = self::removeQueryString($url);
 		if (self::matchRoute($url))
 		{
 			$controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
@@ -108,6 +109,22 @@ class Router
 	protected static function lowerCamelCase($string)
 	{
 		return lcfirst(self::upperCamelCase($string));
+	}
+
+	protected static function removeQueryString($url)
+	{
+		if($url)
+		{
+			$params = explode('&',$url,2);
+			if(strpos($params[0],'=')===false)
+			{
+				return rtrim($params[0],'/');
+			}
+			else
+			{
+				return '';
+			}
+		}
 	}
 
 }

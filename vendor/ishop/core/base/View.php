@@ -19,7 +19,9 @@ class View
 	public $prefix; //Свойство для хранения префикса.
 	public $data = []; //Свойство для хранения данных.
 	public $meta = []; //Свойство для хранения метаданных.
+	public $metadata; //Свойство для хранения сгенерированного кода метаданных.
 	public $layout; //Свойство для хранения шаблона.
+	public $content; //Свойство для хранения данных контента.
 
 	public function __construct($route, $layout = '', $view = '', $meta)
 	{
@@ -42,6 +44,10 @@ class View
 	//Метод который формирует сираницу для пользователя
 	public function render($data)
 	{
+//		debug($data);
+//		exit();
+		if(is_array($data))extract($data);
+
 		$fileView = APP."/views/{$this->prefix}{$this->controller}/{$this->view}.php";
 
 		if(file_exists($fileView))
@@ -50,13 +56,41 @@ class View
 			//Включаем буферизацию, так как нам не нужно что бы Вид выводился сразу, а нам его необходимо вставить в макет (layout)
 			ob_start();
 			require_once $fileView;
-			$content = ob_get_clean(); //Присвоим всё из буфера в переменную $content и очистим буфер. Всё содержимое буфера храниться у нас в переменной $content
+			$this->content = ob_get_clean(); //Присвоим всё из буфера в переменную $content и очистим буфер. Всё содержимое буфера храниться у нас в переменной $content
 //			и мы можем это содержимое вывести в любой момент
 
 		}
 		else{
 //		Файл НЕ существует
-			throw new \Exception("Не найден вид {$pahtViewFile}", 404);
+			throw new \Exception("Не найден вид {$fileView}", 500);
 		}
+
+		if($this->layout !== false)
+		{
+			$fileLayout = APP."/views/layouts/{$this->layout}.php";
+			if(file_exists($fileLayout))
+			{
+				$this->metadata = $this->getMeta();
+				require_once $fileLayout;
+
+			}
+			else
+			{
+				//Файл НЕ существует
+				throw new \Exception("Не найден макет {$fileLayout}", 500);
+			}
+		}
+	}
+
+	public function getMeta()
+	{
+		$output ='';
+		if($this->meta !='' && is_array($this->meta))
+		{
+			$output ='<meta name="description" content="'.$this->meta['description'].'">'.PHP_EOL;
+			$output.="\t".'<meta name="keywords" content="'.$this->meta['keywords'].'">'.PHP_EOL;
+			$output.="\t".'<title>'.$this->meta['title'].'</title>'.PHP_EOL;
+		}
+		return $output;
 	}
 }
