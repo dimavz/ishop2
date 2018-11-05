@@ -580,3 +580,45 @@
 ====================
 [2018-11-02 13:04:05] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
 ====================
+[2018-11-05 09:03:08] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:33:21] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:34:34] Текст ошибки:Class 'R' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 20 
+====================
+[2018-11-05 17:34:35] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:38:26] Текст ошибки:Class 'R' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 20 
+====================
+[2018-11-05 17:38:26] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:46:06] Текст ошибки:Class 'ishop\base\Db' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\base\Model.php | Строка: 20 
+====================
+[2018-11-05 17:46:06] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:48:33] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:49:43] Текст ошибки:Class 'ishop\base\Db' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\base\Model.php | Строка: 22 
+====================
+[2018-11-05 17:49:43] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:50:36] Текст ошибки:syntax error, unexpected ''/Db.php;' (T_ENCAPSED_AND_WHITESPACE) | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\base\Model.php | Строка: 11 
+====================
+[2018-11-05 17:50:36] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:52:18] Текст ошибки:Class 'ishop\base\Db' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\base\Model.php | Строка: 20 
+====================
+[2018-11-05 17:52:18] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 17:55:59] Текст ошибки:Class 'R' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 20 
+====================
+[2018-11-05 17:55:59] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 18:02:57] Текст ошибки:Class 'R' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 20 
+====================
+[2018-11-05 18:02:57] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-05 18:02:58] Текст ошибки:Class 'R' not found | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 20 
+====================
+[2018-11-05 18:02:58] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================

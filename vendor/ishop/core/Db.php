@@ -7,6 +7,7 @@
  */
 
 namespace ishop;
+use \RedBeanPHP\R as R;
 
 
 class Db
@@ -16,5 +17,12 @@ class Db
 	protected function __construct()
 	{
 		$db = require_once CONFIG.'/config_db.php';
+		\R::setup($db['dsn'],$db['user'],$db['pass']);
+
+		if(! \R::testConnection()){
+			echo "Соединение не установлено";
+			throw new \Exception('Нет соединения с БД'. $db['dsn'], 500);
+		}
+
 	}
 }

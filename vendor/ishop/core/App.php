@@ -2,6 +2,7 @@
 
 namespace ishop;
 
+
 class App
 {
 	public static $app;

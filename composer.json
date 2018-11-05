@@ -6,6 +6,7 @@
     }
   },
   "require": {
+    "gabordemooij/redbean": "dev-master"
   },
   "name": "ishop2/package_name",
   "description": "my first shop",
