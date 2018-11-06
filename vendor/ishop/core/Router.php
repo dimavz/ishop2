@@ -60,11 +60,12 @@ class Router
 
 	public static function matchRoute($url)
 	{
-
 		foreach (self::$routes as $pattern => $route)
 		{
 			if (preg_match("#{$pattern}#", $url, $matches))
 			{
+//				debug($matches);
+//				exit();
 				foreach ($matches as $k => $v)
 				{
 					if (is_string($k))
@@ -87,6 +88,7 @@ class Router
 				$route['controller'] = self::upperCamelCase($route['controller']);
 				self::$route = $route;
 //				debug(self::$route);
+//				exit();
 				return true;
 			}
 		}
@@ -125,6 +127,7 @@ class Router
 				return '';
 			}
 		}
+		return $url;
 	}
 
 }
