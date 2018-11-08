@@ -35,12 +35,12 @@ class ErrorHandler
 	protected function displayError($err_number, $err_str, $err_file, $err_line)
 	{
 		http_response_code($err_number);
-		if ($err_number == 404 && !DEBUG)
+		if ($err_number == 404 && ! DEBUG)
 		{
 			require_once WWW . '/errors/404.php';
 			die;
 		}
-		if (DEBUG)
+		elseif(DEBUG)
 		{
 			require_once WWW . '/errors/dev.php';
 		}

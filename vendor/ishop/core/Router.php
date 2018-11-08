@@ -62,6 +62,8 @@ class Router
 	{
 		foreach (self::$routes as $pattern => $route)
 		{
+//			echo $pattern;
+//			debug($route);
 			if (preg_match("#{$pattern}#", $url, $matches))
 			{
 //				debug($matches);
@@ -86,13 +88,13 @@ class Router
 					$route['prefix'] .= '\\';
 				}
 				$route['controller'] = self::upperCamelCase($route['controller']);
-				self::$route = $route;
-//				debug(self::$route);
+//				debug($route);
 //				exit();
+				self::$route = $route;
+
 				return true;
 			}
 		}
-
 		return false;
 
 	}
