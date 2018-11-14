@@ -10,6 +10,8 @@ namespace app\controllers;
 
 
 use app\models\AppModel;
+use app\widgets\currency\Currency;
+use ishop\App;
 use ishop\base\Controller;
 
 class AppController extends Controller
@@ -18,5 +20,12 @@ class AppController extends Controller
 		{
 			parent::__construct($route);
 			new AppModel();
+//			setcookie('currency','EUR', time()+3600*24*7, '/');
+			$currencies = Currency::getCurrencies();
+			App::$app->setProperty('currencies',$currencies);
+			$currency = Currency::getCurrency(App::$app->getProperty('currencies'));
+			App::$app->setProperty('currency',$currency);
+//			debug(App::$app->getProperties());
+
 		}
 }

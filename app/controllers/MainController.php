@@ -20,7 +20,8 @@ class MainController extends AppController
 			'Главная страница интернет магазина ishop2',
 			'электроника,бытовая техника, компьютеры и периферия');
 		$brands = R::find('brand', 'LIMIT 3');
-//		debug($brands);
-		$this->setData(compact('brands'));
+		$hits = R::find('product', "hit='1' AND publish ='1' LIMIT 8");
+//		debug($hits);
+		$this->setData(compact('brands','hits'));
 	}
 }
