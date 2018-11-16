@@ -982,3 +982,71 @@
 ====================
 [2018-11-14 15:27:55] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
 ====================
+[2018-11-16 14:19:41] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 14:19:50] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 14:40:44] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 14:41:44] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 14:42:57] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:19:50] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:20:13] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:21:15] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:21:16] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:21:33] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:22:10] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:49:17] Текст ошибки:Call to undefined method ishop\Cache::getProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 39 
+====================
+[2018-11-16 15:49:17] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:50:39] Текст ошибки:Call to undefined method ishop\Cache::getProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 39 
+====================
+[2018-11-16 15:50:39] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:50:40] Текст ошибки:Call to undefined method ishop\Cache::getProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 39 
+====================
+[2018-11-16 15:50:40] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:51:54] Текст ошибки:Call to undefined method ishop\Cache::getProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 39 
+====================
+[2018-11-16 15:51:54] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:52:51] Текст ошибки:Call to undefined method ishop\Cache::setProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 43 
+====================
+[2018-11-16 15:52:51] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:52:52] Текст ошибки:Call to undefined method ishop\Cache::setProperty() | Файл: G:\OpenServer\domains\ishop2.loc\app\controllers\AppController.php | Строка: 43 
+====================
+[2018-11-16 15:52:53] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:53:06] Текст ошибки:syntax error, unexpected ')' | Файл: G:\OpenServer\domains\ishop2.loc\app\widgets\menu\Menu.php | Строка: 55 
+====================
+[2018-11-16 15:53:06] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:54:00] Текст ошибки:syntax error, unexpected ')' | Файл: G:\OpenServer\domains\ishop2.loc\app\widgets\menu\Menu.php | Строка: 55 
+====================
+[2018-11-16 15:54:00] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 15:58:08] Текст ошибки:syntax error, unexpected ')' | Файл: G:\OpenServer\domains\ishop2.loc\app\widgets\menu\Menu.php | Строка: 55 
+====================
+[2018-11-16 15:58:08] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 16:00:57] Текст ошибки:syntax error, unexpected ')' | Файл: G:\OpenServer\domains\ishop2.loc\app\widgets\menu\Menu.php | Строка: 55 
+====================
+[2018-11-16 16:00:57] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 16:01:09] Текст ошибки:syntax error, unexpected ')' | Файл: G:\OpenServer\domains\ishop2.loc\app\widgets\menu\Menu.php | Строка: 55 
+====================
+[2018-11-16 16:01:09] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-11-16 16:01:44] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
