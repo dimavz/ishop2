@@ -37,7 +37,7 @@ class Cache
 			$content = unserialize(file_get_contents($file));
 			if (time() <= $content['end_time']) // Проверяем не устарел ли кэш
 			{
-				return $content;
+				return $content['data'];
 			}
 			unlink($file); // Удаляем файл с устаревшим кэшем
 		}
