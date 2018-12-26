@@ -1700,3 +1700,23 @@
 ====================
 [2018-11-19 15:36:15] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
 ====================
+[2018-12-26 16:44:57] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-12-26 16:45:57] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-12-26 16:47:31] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2018-12-26 16:58:07] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2018-12-26 17:08:05] Текст ошибки:Страница не найдена | Файл: G:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2018-12-26 17:18:26] Текст ошибки:syntax error, unexpected '=' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 193 
+====================
+[2018-12-26 17:18:29] Текст ошибки:syntax error, unexpected '=' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 193 
+====================
+[2018-12-26 17:19:05] Текст ошибки:syntax error, unexpected '=' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 193 
+====================
+[2018-12-26 17:19:36] Текст ошибки:syntax error, unexpected '=' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 195 
+====================
+[2018-12-26 17:55:07] Текст ошибки:syntax error, unexpected ':' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 207 
+====================

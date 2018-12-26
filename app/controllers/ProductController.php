@@ -26,14 +26,15 @@ class ProductController extends AppController
 		//debug($product);
 		$gallery = R::findAll('gallery',"product_id = ?",[$product->id]);
 //		debug($images);
-		$this->setMeta($product->title, $product->description, $product->keywords);
-		$this->setData(compact('product','gallery'));
 
 //		debug($product);
 
 		// Хлебные крошки
 
 		//Связанные товары
+		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?",[$product->id]);
+//				debug($related);
+//				exit();
 
 		//Запись в куки текущего товара
 
@@ -42,6 +43,8 @@ class ProductController extends AppController
 		//Галлерея
 
 		//Модификации товара
+		$this->setMeta($product->title, $product->description, $product->keywords);
+		$this->setData(compact('product','gallery','related'));
 
 	}
 }
