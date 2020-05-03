@@ -5,5 +5,5 @@
 return [
 	'dsn'  => 'mysql:host=localhost; dbname=ishop2; charet=utf8;',
 	'user' => 'root',
-	'pass' => '',
+	'pass' => 'root',
 ];
