@@ -1,3 +1,6 @@
+# Подключаем кодировку по умолчанию для всего сайта
 AddDefaultCharset utf-8
+# Включаем модуль перенаправления
 RewriteEngine On
+# Перенаправляем все запросы на папку public
 RewriteRule (.*) public/$1
