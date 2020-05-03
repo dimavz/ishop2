@@ -24,18 +24,18 @@ class AppController extends Controller
 			new AppModel();
 //			setcookie('currency','EUR', time()+3600*24*7, '/');
 			$currencies = Currency::getCurrencies();
-			App::$app->setProperty('currencies',$currencies);
-			$currency = Currency::getCurrency(App::$app->getProperty('currencies'));
-			App::$app->setProperty('currency',$currency);
+			App::$properties->setProperty('currencies',$currencies);
+			$currency = Currency::getCurrency(App::$properties->getProperty('currencies'));
+			App::$properties->setProperty('currency',$currency);
 //			debug(App::$app->getProperties());
-			App::$app->setProperty('categories', self::cacheCategories());
+			App::$properties->setProperty('categories', self::cacheCategories());
 //			debug(App::$app->getProperties());
 
 		}
 
 		public static function cacheCategories()
 		{
-			$cache = Cache::instance();
+			$cache = Cache::getInstance();
 			$categories = $cache->get('categories');
 			if(!$categories)
 			{

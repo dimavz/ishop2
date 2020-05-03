@@ -41,7 +41,7 @@
 <?php endif;?>
 <!--product-starts-->
 <?php if($hits):?>
-    <?php $curr = \ishop\App::$app->getProperty('currency');?>
+    <?php $curr = \ishop\App::$properties->getProperty('currency');?>
 <div class="product">
     <div class="container">
         <div class="product-top">

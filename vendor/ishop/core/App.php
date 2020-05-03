@@ -5,15 +5,15 @@ namespace ishop;
 
 class App
 {
-	public static $app;
+	public static $properties; // Свойство для хранения параметров приложения
 
 	public function __construct()
 	{
-		$query = trim($_SERVER['QUERY_STRING'], '/');
+		$query = trim($_SERVER['QUERY_STRING'], '/'); // Обрезаем концевой слэш из строки запроса
 //		debug($query);
 //		exit();
-		session_start();
-		self::$app = Registry::instance();
+		session_start(); // Стартуем сессию
+		self::$properties = Registry::getInstance();
 		$this->getParams();
 		new ErrorHandler();
 		Router::dispathch($query);
@@ -24,7 +24,7 @@ class App
 		$params = require_once CONFIG.'/params.php';
 		if(!empty($params)){
 			foreach ($params as $k=>$v){
-				self::$app->setProperty($k,$v);
+				self::$properties->setProperty($k,$v);
 			}
 		}
 	}

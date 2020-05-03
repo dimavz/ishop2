@@ -16,7 +16,7 @@ class MainController extends AppController
 {
 	public function indexAction()
 	{
-		$this->setMeta(App::$app->getProperty('shop_name'),
+		$this->setMeta(App::$properties->getProperty('shop_name'),
 			'Главная страница интернет магазина ishop2',
 			'электроника,бытовая техника, компьютеры и периферия');
 		$brands = R::find('brand', 'LIMIT 3');

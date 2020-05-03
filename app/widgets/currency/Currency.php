@@ -25,8 +25,8 @@ class Currency
 
 	protected function run() // Получает список доступных валют и текущую валюту
 	{
-		$this->currencies = App::$app->getProperty('currencies');
-		$this->currency = App::$app->getProperty('currency');
+		$this->currencies = App::$properties->getProperty('currencies');
+		$this->currency = App::$properties->getProperty('currency');
 		echo $this->getHtml();
 	}
 

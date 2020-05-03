@@ -1720,3 +1720,25 @@
 ====================
 [2018-12-26 17:55:07] Текст ошибки:syntax error, unexpected ':' | Файл: G:\OpenServer\domains\ishop2.loc\app\views\Product\view.php | Строка: 207 
 ====================
+[2020-05-03 11:57:08] Текст ошибки:Нет соединения с БДmysql:host=localhost; dbname=ishop2; charet=utf8; | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Db.php | Строка: 26 
+====================
+[2020-05-03 11:57:08] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-03 11:58:09] Текст ошибки:Нет соединения с БДmysql:host=localhost; dbname=ishop2; charet=utf8; | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Db.php | Строка: 26 
+====================
+[2020-05-03 12:00:35] Текст ошибки:Нет соединения с БДmysql:host=localhost; dbname=ishop2; charet=utf8; | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Db.php | Строка: 26 
+====================
+[2020-05-03 12:02:06] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-03 12:25:07] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-03 23:35:14] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-03 23:47:33] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-04 00:12:47] Текст ошибки:Call to undefined method ishop\Db::instance() | Файл: F:\OpenServer\domains\ishop2\vendor\ishop\core\base\Model.php | Строка: 20 
+====================
+[2020-05-04 00:15:01] Текст ошибки:Call to undefined method ishop\Cache::instance() | Файл: F:\OpenServer\domains\ishop2\app\controllers\AppController.php | Строка: 38 
+====================
+[2020-05-04 00:16:23] Текст ошибки:Call to undefined method ishop\Cache::instance() | Файл: F:\OpenServer\domains\ishop2\app\widgets\menu\Menu.php | Строка: 54 
+====================

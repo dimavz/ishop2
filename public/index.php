@@ -1,4 +1,5 @@
 <?php
+use ishop\App;
 /**
  * Created by PhpStorm.
  * User: Дмитрий
@@ -10,7 +11,9 @@ require_once LIBS.'/functions.php';
 require_once CONFIG.'/routes.php';
 
 
-new \ishop\App();
+new App();
+
+//debug(App::$properties->getProperties());
 
 //throw new Exception('Произошла ошибка',502);
 //debug(\ishop\Router::getRoutes());
