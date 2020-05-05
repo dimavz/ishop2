@@ -18,7 +18,7 @@ class ErrorHandler
 		{
 			error_reporting(0); //Отключить показ ошибок
 		}
-		set_exception_handler([$this, 'exceptionHandler']);
+		set_exception_handler([$this, 'exceptionHandler']); // Функция set_exception_handler позволяет назначить для обработки ошибок свою функцию
 	}
 
 	public function exceptionHandler($error)

@@ -22,6 +22,6 @@ class MainController extends AppController
 		$brands = R::find('brand', 'LIMIT 3');
 		$hits = R::find('product', "hit='1' AND publish ='1' LIMIT 8");
 //		debug($hits);
-		$this->setData(compact('brands','hits'));
+		$this->setData(compact('brands','hits')); // Функции compact передаются названия существующих переменных в виде строк без знака $
 	}
 }

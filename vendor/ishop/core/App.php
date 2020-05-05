@@ -16,7 +16,7 @@ class App
 		self::$properties = Registry::getInstance();
 		$this->getParams();
 		new ErrorHandler();
-		Router::dispathch($query);
+		Router::dispatch($query);
 
 	}
 

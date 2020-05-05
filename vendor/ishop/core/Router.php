@@ -29,7 +29,7 @@ class Router
 		return self::$route;
 	}
 
-	public static function dispathch($url)
+	public static function dispatch($url)
 	{
 		$url = self::removeQueryString($url);
 		if (self::matchRoute($url))
@@ -58,6 +58,7 @@ class Router
 		}
 	}
 
+	// Метод который ищет совпадение в url адресе с патерном из массива маршрутов
 	public static function matchRoute($url)
 	{
 		foreach (self::$routes as $pattern => $route)
@@ -99,7 +100,7 @@ class Router
 
 	}
 
-	//CamelCase
+	//Метод приводит наименование к формату CamelCase
 	protected static function upperCamelCase($string)
 	{
 		$str = str_replace('-',' ',$string);
@@ -109,7 +110,7 @@ class Router
 		return $str;
 	}
 
-	//camelCase
+	//Метод приводит наименование к формату camelCase
 	protected static function lowerCamelCase($string)
 	{
 		return lcfirst(self::upperCamelCase($string));

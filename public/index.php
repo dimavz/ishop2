@@ -16,4 +16,5 @@ new App();
 //debug(App::$properties->getProperties());
 
 //throw new Exception('Произошла ошибка',502);
+//throw new Exception('Страница не найдена',404);
 //debug(\ishop\Router::getRoutes());
