@@ -16,7 +16,7 @@
     <div class="clearfix"> </div>
 </div>
 <!--banner-ends-->
-<?php if($brands):?>
+<?php if(!empty($brands)):?>
 <?php //debug($brands);?>
 <!--about-starts-->
 <div class="about">

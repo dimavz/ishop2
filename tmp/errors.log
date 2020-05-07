@@ -1778,3 +1778,35 @@
 ====================
 [2020-05-05 10:30:20] Текст ошибки:Контроллер app\controllers\PageController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
 ====================
+[2020-05-05 10:44:01] Текст ошибки:Нет соединения с БДmysql:host=localhost; dbname=ishop2; charet=utf8; | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 26 
+====================
+[2020-05-05 10:45:16] Текст ошибки:Нет соединения с БДmysql:host=localhost; dbname=ishop2; charet=utf8; | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Db.php | Строка: 26 
+====================
+[2020-05-05 22:58:11] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-05 23:39:20] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-05 23:42:55] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-05 23:44:31] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 53 
+====================
+[2020-05-05 23:45:00] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 53 
+====================
+[2020-05-05 23:45:04] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 53 
+====================
+[2020-05-05 23:53:15] Текст ошибки:Контроллер app\controllers\ShopController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-05 23:53:34] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-06 00:10:09] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-06 15:40:15] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-06 22:04:34] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-07 14:27:21] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-07 14:44:47] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-07 14:53:55] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================

@@ -16,18 +16,18 @@ class Db
 
 	protected function __construct()
 	{
-		$db = require_once CONFIG . '/config_db.php';
+		$config = require_once CONFIG . '/config_db.php';
 //		\R::setup($db['dsn'],$db['user'],$db['pass']);
-		R::setup($db['dsn'], $db['user'], $db['pass']);
+		R::setup($config['dsn'], $config['user'], $config['pass']);
 
 		if (!R::testConnection())
 		{
 //			Соединение не установлено
-			throw new \Exception('Нет соединения с БД' . $db['dsn'], 500);
+			throw new \Exception('Нет соединения с БД' . $config['dsn'], 500);
 		}
 		else
 		{
-//			Соединение установлено
+//			echo 'Соединение установлено';
 		}
 
 		if (DEBUG) //Если включен режим отладки

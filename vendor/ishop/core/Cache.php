@@ -18,9 +18,10 @@ class Cache
 	{
 		if ($seconds)
 		{
-			$content['data']     = $data;
-			$content['end_time'] = time() + $seconds;
-			if (file_put_contents(CACHE . '/' . md5($key) . '.txt', serialize($content)))
+			$content['data']     = $data; // Помещаем данные в массив
+			$content['end_time'] = time() + $seconds; // Помещаем время актуальности кэша в массив
+            $file = CACHE . '/' . md5($key) . '.txt'; // Формируем название файла кэша
+			if (file_put_contents($file, serialize($content))) // Помещаем в файл кэша сериализованные данные
 			{
 				return true; // Если удалось положить данные в кэш, то возвращаем истину
 			}
@@ -34,7 +35,8 @@ class Cache
 		$file = CACHE . '/' . md5($key) . '.txt';
 		if (file_exists($file)) // Проверяем существует ли файл с кэшем
 		{
-			$content = unserialize(file_get_contents($file));
+			$content = unserialize(file_get_contents($file)); // Получаем из файла кэша его содержимое и делаем десериализацию данных
+//            debug($content);
 			if (time() <= $content['end_time']) // Проверяем не устарел ли кэш
 			{
 				return $content['data'];

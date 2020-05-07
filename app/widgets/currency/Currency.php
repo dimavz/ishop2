@@ -19,7 +19,7 @@ class Currency
 
 	public function __construct()
 	{
-		$this->tpl = __DIR__ . '/template/currency_tpl.php';
+		$this->tpl = __DIR__ . '/tmpl/default.php';
 		$this->run();
 	}
 

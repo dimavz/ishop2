@@ -226,7 +226,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     });
 </script>
-<script src="js/main.js"></script>
+<script src="js/change_currency.js"></script><!-- Скрипт для обработки виджета изменения валют -->
 <!--End-slider-script-->
 </body>
 </html>

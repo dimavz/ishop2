@@ -24,6 +24,7 @@ class AppController extends Controller
 			new AppModel();
 //			setcookie('currency','EUR', time()+3600*24*7, '/');
 			$currencies = Currency::getCurrencies();
+//			debug($currencies);
 			App::$properties->setProperty('currencies',$currencies);
 			$currency = Currency::getCurrency(App::$properties->getProperty('currencies'));
 			App::$properties->setProperty('currency',$currency);

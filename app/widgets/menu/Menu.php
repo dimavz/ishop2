@@ -30,7 +30,7 @@ class Menu
 
 	public function __construct($options = [])
 	{
-		$this->tpl = __DIR__ . '/template/menu_tpl.php';
+		$this->tpl = __DIR__ . '/tmpl/default.php';
 		$this->getOptions($options);
 		$this->run();
 	}
