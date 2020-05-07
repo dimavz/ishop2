@@ -14,6 +14,7 @@ function redirect($http = false)
 	}
 	else{
 		$redirect = isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER']: PATH;
+		//$_SERVER['HTTP_REFERER'] - страница откуда пришёл пользователь
 	}
 	header("Location: $redirect");
 	exit();
