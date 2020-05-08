@@ -1810,3 +1810,11 @@
 ====================
 [2020-05-07 14:53:55] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
 ====================
+[2020-05-07 22:25:14] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-07 22:38:13] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-07 23:10:09] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-08 11:58:02] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================

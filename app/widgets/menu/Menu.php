@@ -23,19 +23,19 @@ class Menu
 	protected $container = 'ul'; // Свойство для хранения тэга контейнера меню
 	protected $class = 'menu';
 	protected $table = 'category'; // Свойство для хранения таблицы из которой выбираются данные для меню
-	protected $cache = 3600; // Свойство для хранения времени жизни кэша данных меню
-	protected $cacheKey = 'ishop_menu'; // Свойство для хранения ключа кэша
+	protected $cacheTime = 3600; // Свойство для хранения времени жизни кэша данных меню
+	protected $cacheKey = 'menu_categories'; // Свойство для хранения ключа кэша
 	protected $attrs = []; // Свойство для хранения атрибутов меню
 	protected $prepend = ''; // Свойство для хранения префикса
 
 	public function __construct($options = [])
 	{
 		$this->tpl = __DIR__ . '/tmpl/default.php';
-		$this->getOptions($options);
+		$this->setOptions($options);
 		$this->run();
 	}
 
-	protected function getOptions($options)
+	protected function setOptions($options)
 	{
 		if (is_array($options))
 		{
@@ -49,23 +49,46 @@ class Menu
 		}
 	}
 
-	protected function run()
+//	protected function run()
+//	{
+//		$cache          = Cache::getInstance();
+//		$this->menuHtml = $cache->get($this->cacheKey);
+//		if (!$this->menuHtml)
+//		{
+//			$this->data = App::$properties->getProperty('categories');
+//			if (!$this->data)
+//			{
+//				$this->data = R::getAssoc("SELECT * FROM {$this->table}");
+//			}
+//			$this->tree = $this->getTree();
+////			debug($this->tree);
+//			$this->menuHtml = $this->getMenuHtml($this->tree);
+//			if ($this->cacheTime)
+//			{
+//				$cache->set($this->cacheKey, $this->menuHtml, $this->cacheTime);
+//			}
+//		}
+//		$this->output();
+//	}
+
+	protected function run() // Переделал метод run. Сделал его более гибким
 	{
 		$cache          = Cache::getInstance();
 		$this->menuHtml = $cache->get($this->cacheKey);
 		if (!$this->menuHtml)
 		{
-			$this->data = App::$properties->getProperty('categories');
+			$this->data = $cache->get($this->cacheKey.'.'.$this->table.'.data');
 			if (!$this->data)
 			{
 				$this->data = R::getAssoc("SELECT * FROM {$this->table}");
+                $cache->set($this->cacheKey.'.'.$this->table.'.data',$this->data,$this->cacheTime);
 			}
 			$this->tree = $this->getTree();
 //			debug($this->tree);
 			$this->menuHtml = $this->getMenuHtml($this->tree);
-			if ($this->cache)
+			if ($this->cacheTime)
 			{
-				$cache->set($this->cacheKey, $this->menuHtml, $this->cache);
+				$cache->set($this->cacheKey, $this->menuHtml, $this->cacheTime);
 			}
 		}
 		$this->output();
@@ -86,6 +109,7 @@ class Menu
 		echo $this->menuHtml;
 		echo "</{$this->container}>";
 	}
+
 
 	protected function getTree()
 	{
