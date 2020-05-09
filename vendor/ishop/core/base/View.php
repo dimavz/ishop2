@@ -8,7 +8,7 @@
  */
 
 namespace ishop\base;
-
+use \RedBeanPHP\R as R;
 
 class View
 {
@@ -38,7 +38,7 @@ class View
         }
     }
 
-    //Метод который формирует сираницу для пользователя
+    //Метод который формирует страницу для пользователя
     public function render($data)
     {
 //		debug($data);
@@ -68,8 +68,12 @@ class View
             $fileLayout = APP . "/views/layouts/{$this->layout}.php";
             if (file_exists($fileLayout)) {
                 $this->metadata = $this->getMeta();
+                $logs = null;
+                if (DEBUG)
+                {
+                    $logs = R::getDatabaseAdapter()->getDatabase()->getLogger();
+                }
                 require_once $fileLayout;
-
             } else {
                 //Файл НЕ существует
                 throw new \Exception("Не найден макет {$fileLayout}", 500);

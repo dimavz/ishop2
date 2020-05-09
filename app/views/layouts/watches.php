@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="/">
+    <base href="/"><!--   Специальный тэг для подстановки слэша в ссылки. Перед каждой ссылкой в атрибуде href  добавляется / -->
 	<?= $this->getMeta(); ?>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!--Custom-Theme-files-->
@@ -73,10 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="col-md-9 header-left">
                 <div class="menu-container">
                     <div class="menu">
-	                    <?php new \app\widgets\menu\Menu([
-		                    'tpl'   => WWW . '/menu/menu.php',
-
-	                    ]); ?>
+	                    <?php new \app\widgets\menu\Menu(['tpl'   => WWW . '/menu/menu.php',]); ?>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -228,5 +225,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </script>
 <script src="js/change_currency.js"></script><!-- Скрипт для обработки виджета изменения валют -->
 <!--End-slider-script-->
+<?php
+if(!empty($logs))
+{
+    debug($logs->grep('SELECT'));
+}
+
+?>
 </body>
 </html>
