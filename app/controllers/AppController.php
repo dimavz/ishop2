@@ -29,20 +29,20 @@ class AppController extends Controller
 			$currency = Currency::getCurrency(App::$properties->getProperty('currencies'));
 			App::$properties->setProperty('currency',$currency);
 //			debug(App::$app->getProperties());
-//			App::$properties->setProperty('categories', self::cacheCategories());
+			App::$properties->setProperty('categories', self::cacheCategories());
 //			debug(App::$app->getProperties());
 
 		}
 
-//		public static function cacheCategories()
-//		{
-//			$cache = Cache::getInstance();
-//			$categories = $cache->get('categories');
-//			if(!$categories)
-//			{
-//				$categories = R::getAssoc("SELECT * FROM category");
-//				$cache->set('categories',$categories);
-//			}
-//			return $categories;
-//		}
+		public static function cacheCategories()
+		{
+			$cache = Cache::getInstance();
+			$categories = $cache->get('categories');
+			if(!$categories)
+			{
+				$categories = R::getAssoc("SELECT * FROM category");
+				$cache->set('categories',$categories);
+			}
+			return $categories;
+		}
 }

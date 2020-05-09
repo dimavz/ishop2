@@ -1818,3 +1818,53 @@
 ====================
 [2020-05-08 11:58:02] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
 ====================
+[2020-05-08 18:00:48] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-08 18:09:25] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-09 14:30:42] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-09 15:03:40] Текст ошибки:Товар по алиасу casio-mq-24-7bul не найден | Файл: F:\OpenServer\domains\ishop2.loc\app\controllers\ProductController.php | Строка: 24 
+====================
+[2020-05-09 15:03:55] Текст ошибки:Товар по алиасу casio-ga-1000-1aer не найден | Файл: F:\OpenServer\domains\ishop2.loc\app\controllers\ProductController.php | Строка: 24 
+====================
+[2020-05-09 15:55:42] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-09 16:01:35] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-09 16:01:48] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-09 18:49:34] Текст ошибки:Страница не найдена | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 57 
+====================
+[2020-05-09 18:55:12] Текст ошибки:Контроллер app\controllers\CategoryController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-09 18:55:27] Текст ошибки:Контроллер app\controllers\CartController не найден | Файл: F:\OpenServer\domains\ishop2.loc\vendor\ishop\core\Router.php | Строка: 52 
+====================
+[2020-05-09 19:05:24] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:05:50] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:09:10] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:11:50] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:11:59] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:12:50] Текст ошибки:syntax error, unexpected 'use' (T_USE) | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:14:01] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:15:30] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:20:56] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:21:04] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:23:02] Текст ошибки:Class 'R' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:23:35] Текст ошибки:Class 'RB' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:25:38] Текст ошибки:Class 'RB' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================
+[2020-05-09 19:26:45] Текст ошибки:Class 'RB' not found | Файл: F:\OpenServer\domains\ishop2.loc\app\views\layouts\watches.php | Строка: 231 
+====================

@@ -16,7 +16,7 @@
         <div class="single-main">
             <!--			--><? //= debug($product);?>
 			<?php $curr = \ishop\App::$properties->getProperty('currency'); ?>
-			<?php $cats = \ishop\App::$properties->getProperty('categories'); ?>
+			<?php $cats = \ishop\App::$properties->getProperty('categories');?>
             <div class="col-md-9 single-main-left">
                 <div class="sngl-top">
                     <div class="col-md-5 single-top-left">

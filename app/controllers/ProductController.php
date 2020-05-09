@@ -19,11 +19,11 @@ class ProductController extends AppController
 
 		$product = R::findOne('product',"publish='1' and alias = ?", [$alias]);
 
-		if(!$product)
+		if(empty($product))
 		{
 			throw new \Exception("Товар по алиасу $alias не найден", 404);
 		}
-		//debug($product);
+//		debug($product);
 		$gallery = R::findAll('gallery',"product_id = ?",[$product->id]);
 //		debug($images);
 
@@ -32,7 +32,8 @@ class ProductController extends AppController
 		// Хлебные крошки
 
 		//Связанные товары
-		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?",[$product->id]);
+//		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?",[$product->id]);
+		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ? LIMIT 3",[$product->id]);
 //				debug($related);
 //				exit();
 
@@ -42,8 +43,13 @@ class ProductController extends AppController
 
 		//Галлерея
 
-		//Модификации товара
+		//Получить Модификации товара
+
+
+        // Установка мета данных товара
 		$this->setMeta($product->title, $product->description, $product->keywords);
+
+		// Передача данных о товаре в вид
 		$this->setData(compact('product','gallery','related'));
 
 	}
