@@ -25,12 +25,14 @@ class ProductController extends AppController
 			throw new \Exception("Товар по алиасу $alias не найден", 404);
 		}
 //		debug($product);
+        //Картинки Галлереи товара
 		$gallery = R::findAll('gallery',"product_id = ?",[$product->id]);
 //		debug($images);
 
 //		debug($product);
 
 		// Хлебные крошки
+
 
 		//Связанные товары
 //		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?",[$product->id]);
@@ -44,8 +46,6 @@ class ProductController extends AppController
 
 		//Просмотренные товары из кук
         $viewedProducts = $productModel->getRecentlyViewed();
-
-		//Галлерея
 
 		//Получить Модификации товара
 
