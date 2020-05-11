@@ -3,8 +3,11 @@
     <div class="container">
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Single</li>
+            <?php if(!empty($breadcrumbs)): ?>
+                <?php echo $breadcrumbs; ?>
+                <?php endif; ?>
+<!--                <li><a href="index.html">Home</a></li>-->
+<!--                <li class="active">Single</li>-->
             </ol>
         </div>
     </div>

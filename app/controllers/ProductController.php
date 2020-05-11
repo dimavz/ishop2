@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers;
+use app\models\BreadcrumbsModel;
 use app\models\ProductModel;
 use \RedBeanPHP\R as R;
 
@@ -32,7 +33,7 @@ class ProductController extends AppController
 //		debug($product);
 
 		// Хлебные крошки
-
+        $breadcrumbs = BreadcrumbsModel::getBreadcrumbs($product->category_id,$product->title);
 
 		//Связанные товары
 //		$related = R::getAll("SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?",[$product->id]);
@@ -54,7 +55,7 @@ class ProductController extends AppController
 		$this->setMeta($product->title, $product->description, $product->keywords);
 
 		// Передача данных о товаре в вид
-		$this->setData(compact('product','gallery','related','viewedProducts'));
+		$this->setData(compact('product','gallery','related','viewedProducts','breadcrumbs'));
 
 	}
 }
