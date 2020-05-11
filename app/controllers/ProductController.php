@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers;
+use app\models\ProductModel;
 use \RedBeanPHP\R as R;
 
 
@@ -38,8 +39,11 @@ class ProductController extends AppController
 //				exit();
 
 		//Запись в куки текущего товара
+        $productModel = new ProductModel();
+        $productModel->setRecentlyViewed($product->id);
 
 		//Просмотренные товары из кук
+        $viewedProducts = $productModel->getRecentlyViewed();
 
 		//Галлерея
 
@@ -50,7 +54,7 @@ class ProductController extends AppController
 		$this->setMeta($product->title, $product->description, $product->keywords);
 
 		// Передача данных о товаре в вид
-		$this->setData(compact('product','gallery','related'));
+		$this->setData(compact('product','gallery','related','viewedProducts'));
 
 	}
 }

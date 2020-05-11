@@ -22,11 +22,11 @@
                     <div class="col-md-5 single-top-left">
                         <div class="flexslider">
                             <ul class="slides">
-								<?php if ($gallery): ?>
-									<?php foreach ($gallery as $img): ?>
-                                        <li data-thumb="images/<?= $img->img; ?>">
+								<?php if (!empty($gallery)): ?>
+									<?php foreach ($gallery as $item): ?>
+                                        <li data-thumb="images/<?= $item->img; ?>">
                                             <div class="thumb-image">
-                                                <img src="images/<?= $img->img; ?>" data-imagezoom="true"
+                                                <img src="images/<?= $item->img; ?>" data-imagezoom="true"
                                                      class="img-responsive" alt=""/>
                                             </div>
                                         </li>
@@ -188,6 +188,54 @@
                         <div class="product-one">
                             <h3>С этим товаром так же покупают:</h3>
 							<?php foreach ($related as $item): ?>
+                                <div class="col-md-4 product-left p-left">
+                                    <div class="product-main simpleCart_shelfItem">
+                                        <a href="product/<?=$item['alias']; ?>" class="mask">
+                                            <img class="img-responsive zoom-img" src="images/<?=$item['img']; ?>" alt=""/>
+                                        </a>
+                                        <div class="product-bottom">
+                                            <a href="product/<?=$item['alias']; ?>">
+                                                <h3><?=$item['title'];?></h3>
+                                            </a>
+
+                                    <p>Explore Now</p>
+                                    <h4><a class=" item_add add-to-cart-link" href="cart/add?id=<?=$item['id']; ?>" data-id="<?=$item['id']; ?>"><i></i></a>
+                                        <span class=" item_price">
+                                            <?= $curr['symbol_left'] ?><?=$item['price'] * $curr['value']; ?><?= $curr['symbol_right'] ?>
+
+                                        </span>
+	                                    <?php if($item['old_price']): ?>
+                                            <small><del><?= $curr['symbol_left'] ?><?= $item['old_price']* $curr['value']; ?><?= $curr['symbol_right'] ?></del></small>
+	                                    <?php endif; ?>
+                                            </h4>
+                                        </div>
+                                        <?php if ($item['old_price']>0):?>
+                                        <div class="srch">
+                                            <span>
+                                                <?php
+	                                                $procent = $item['old_price'] * $curr['value']/100;
+	                                                $skidka = ($item['old_price']* $curr['value'] - $item['price']* $curr['value'])/$procent;
+	                                                echo number_format($skidka,1 );
+	                                                echo "%";
+
+                                                 ?>
+                                            </span>
+                                        </div>
+                                    <?php endif;?>
+                                    </div>
+                                </div>
+							<?php endforeach; ?>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+				<?php endif; ?>
+
+                <?php if ($viewedProducts): ?>
+                    <div class="latestproducts">
+                        <div class="product-one">
+                            <h3>Недавно просмотренные товары:</h3>
+							<?php foreach ($viewedProducts as $item): ?>
                                 <div class="col-md-4 product-left p-left">
                                     <div class="product-main simpleCart_shelfItem">
                                         <a href="product/<?=$item['alias']; ?>" class="mask">
