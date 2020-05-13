@@ -1,9 +1,3 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,6 +152,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <!--footer-end-->
+<?php
+$curr = \ishop\App::$properties->getProperty('currency');
+?>
+<script>
+    let path = '<?=PATH;?>';
+    let course = <?=$curr['value'];?>;
+    let symbol_right = '<?=$curr['symbol_right']; ?>';
+    let symbol_left = '<?=$curr['symbol_left']; ?>';
+</script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/simpleCart.min.js"></script>
 <script type="text/javascript" src="js/memenu.js"></script>
@@ -224,6 +227,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     });
 </script>
 <script src="js/change_currency.js"></script><!-- Скрипт для обработки виджета изменения валют -->
+<script src="js/main.js"></script><!-- Файл для скриптов проекта -->
 <!--End-slider-script-->
 <?php
 if(!empty($logs))

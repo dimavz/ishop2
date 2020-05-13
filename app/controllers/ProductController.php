@@ -48,14 +48,15 @@ class ProductController extends AppController
 		//Просмотренные товары из кук
         $viewedProducts = $productModel->getRecentlyViewed();
 
-		//Получить Модификации товара
-
+		//Модификации товара
+        $modifications = $productModel->getModificationProduct($product->id);
+//        debug($modifications);
 
         // Установка мета данных товара
 		$this->setMeta($product->title, $product->description, $product->keywords);
 
 		// Передача данных о товаре в вид
-		$this->setData(compact('product','gallery','related','viewedProducts','breadcrumbs'));
+		$this->setData(compact('product','gallery','related','viewedProducts','breadcrumbs','modifications'));
 
 	}
 }

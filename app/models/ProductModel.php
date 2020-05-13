@@ -50,4 +50,9 @@ class ProductModel extends AppModel
         return null;
     }
 
+    public function getModificationProduct($id){
+        $mods = R::find('modification','product_id = ?',[$id]); // выбираем из БД 3 товара
+        return $mods;
+    }
+
 }

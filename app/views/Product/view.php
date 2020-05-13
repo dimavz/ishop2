@@ -3,11 +3,11 @@
     <div class="container">
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
-            <?php if(!empty($breadcrumbs)): ?>
-                <?php echo $breadcrumbs; ?>
+                <?php if (!empty($breadcrumbs)): ?>
+                    <?php echo $breadcrumbs; ?>
                 <?php endif; ?>
-<!--                <li><a href="index.html">Home</a></li>-->
-<!--                <li class="active">Single</li>-->
+                <!--                <li><a href="index.html">Home</a></li>-->
+                <!--                <li class="active">Single</li>-->
             </ol>
         </div>
     </div>
@@ -18,30 +18,30 @@
     <div class="container">
         <div class="single-main">
             <!--			--><? //= debug($product);?>
-			<?php $curr = \ishop\App::$properties->getProperty('currency'); ?>
-			<?php $cats = \ishop\App::$properties->getProperty('categories');?>
+            <?php $curr = \ishop\App::$properties->getProperty('currency'); ?>
+            <?php $cats = \ishop\App::$properties->getProperty('categories'); ?>
             <div class="col-md-9 single-main-left">
                 <div class="sngl-top">
                     <div class="col-md-5 single-top-left">
                         <div class="flexslider">
                             <ul class="slides">
-								<?php if (!empty($gallery)): ?>
-									<?php foreach ($gallery as $item): ?>
+                                <?php if (!empty($gallery)): ?>
+                                    <?php foreach ($gallery as $item): ?>
                                         <li data-thumb="images/<?= $item->img; ?>">
                                             <div class="thumb-image">
                                                 <img src="images/<?= $item->img; ?>" data-imagezoom="true"
                                                      class="img-responsive" alt=""/>
                                             </div>
                                         </li>
-									<?php endforeach; ?>
-								<?php else: ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
                                     <li data-thumb="images/<?= $product->img; ?>">
                                         <div class="thumb-image">
                                             <img src="images/<?= $product->img; ?>" data-imagezoom="true"
                                                  class="img-responsive" alt=""/>
                                         </div>
                                     </li>
-								<?php endif; ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
                         <!-- FlexSlider -->
@@ -64,32 +64,31 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-
-                            <h5 class="item_price">
-								<?= $curr['symbol_left'] ?><?= $product->price * $curr['value']; ?><?= $curr['symbol_right'] ?>
-								<?php if ($product->old_price): ?>
+                            <h5 class="item_price" id="base-price" data-base="<?= $product->price * $curr['value']; ?>">
+                                <?= $curr['symbol_left'] ?><?= $product->price * $curr['value']; ?><?= $curr['symbol_right'] ?>
+                                <?php if ($product->old_price): ?>
                                     <small>
-                                        <del><?= $curr['symbol_left'] ?><?= $product->old_price * $curr['value']; ?><?= $curr['symbol_right'] ?></del>
+                                        <del data-old="<?= $product->old_price * $curr['value']; ?>"><?= $curr['symbol_left'] ?><?= $product->old_price * $curr['value']; ?><?= $curr['symbol_right'] ?></del>
                                     </small>
-								<?php endif; ?>
+                                <?php endif; ?>
                             </h5>
-							<?= $product->content; ?>
+                            <?= $product->content; ?>
                             <div class="available">
                                 <ul>
-                                    <li>Color
+                                    <li>Цвет
                                         <select>
-                                            <option>Silver</option>
-                                            <option>Black</option>
-                                            <option>Dark Black</option>
-                                            <option>Red</option>
-                                        </select></li>
-                                    <li class="size-in">Size<select>
-                                            <option>Large</option>
-                                            <option>Medium</option>
-                                            <option>small</option>
-                                            <option>Large</option>
-                                            <option>small</option>
-                                        </select></li>
+                                            <option value="0">
+                                                Выбрать цвет
+                                            </option>
+                                            <?php if (!empty($modifications)): ?>
+                                                <?php foreach ($modifications as $mod): ?>
+                                                    <option data-title="<?= $mod->title; ?>"
+                                                            data-price="<?= $mod->price * $curr['value']; ?>"
+                                                            value="<?= $mod->id; ?>"><?= $mod->title; ?></option>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </select>
+                                    </li>
                                     <div class="clearfix"></div>
                                 </ul>
                             </div>
@@ -186,101 +185,109 @@
                         </li>
                     </ul>
                 </div>
-				<?php if ($related): ?>
+                <?php if ($related): ?>
                     <div class="latestproducts">
                         <div class="product-one">
                             <h3>С этим товаром так же покупают:</h3>
-							<?php foreach ($related as $item): ?>
+                            <?php foreach ($related as $item): ?>
                                 <div class="col-md-4 product-left p-left">
                                     <div class="product-main simpleCart_shelfItem">
-                                        <a href="product/<?=$item['alias']; ?>" class="mask">
-                                            <img class="img-responsive zoom-img" src="images/<?=$item['img']; ?>" alt=""/>
+                                        <a href="product/<?= $item['alias']; ?>" class="mask">
+                                            <img class="img-responsive zoom-img" src="images/<?= $item['img']; ?>"
+                                                 alt=""/>
                                         </a>
                                         <div class="product-bottom">
-                                            <a href="product/<?=$item['alias']; ?>">
-                                                <h3><?=$item['title'];?></h3>
+                                            <a href="product/<?= $item['alias']; ?>">
+                                                <h3><?= $item['title']; ?></h3>
                                             </a>
 
-                                    <p>Explore Now</p>
-                                    <h4><a class=" item_add add-to-cart-link" href="cart/add?id=<?=$item['id']; ?>" data-id="<?=$item['id']; ?>"><i></i></a>
-                                        <span class=" item_price">
-                                            <?= $curr['symbol_left'] ?><?=$item['price'] * $curr['value']; ?><?= $curr['symbol_right'] ?>
+                                            <p>Explore Now</p>
+                                            <h4><a class=" item_add add-to-cart-link"
+                                                   href="cart/add?id=<?= $item['id']; ?>" data-id="<?= $item['id']; ?>"><i></i></a>
+                                                <span class=" item_price">
+                                            <?= $curr['symbol_left'] ?><?= $item['price'] * $curr['value']; ?><?= $curr['symbol_right'] ?>
 
                                         </span>
-	                                    <?php if($item['old_price']): ?>
-                                            <small><del><?= $curr['symbol_left'] ?><?= $item['old_price']* $curr['value']; ?><?= $curr['symbol_right'] ?></del></small>
-	                                    <?php endif; ?>
+                                                <?php if ($item['old_price']): ?>
+                                                    <small>
+                                                        <del><?= $curr['symbol_left'] ?><?= $item['old_price'] * $curr['value']; ?><?= $curr['symbol_right'] ?></del>
+                                                    </small>
+                                                <?php endif; ?>
                                             </h4>
                                         </div>
-                                        <?php if ($item['old_price']>0):?>
-                                        <div class="srch">
+                                        <?php if ($item['old_price'] > 0): ?>
+                                            <div class="srch">
                                             <span>
                                                 <?php
-	                                                $procent = $item['old_price'] * $curr['value']/100;
-	                                                $skidka = ($item['old_price']* $curr['value'] - $item['price']* $curr['value'])/$procent;
-	                                                echo number_format($skidka,1 );
-	                                                echo "%";
+                                                $procent = $item['old_price'] * $curr['value'] / 100;
+                                                $skidka = ($item['old_price'] * $curr['value'] - $item['price'] * $curr['value']) / $procent;
+                                                echo number_format($skidka, 1);
+                                                echo "%";
 
-                                                 ?>
+                                                ?>
                                             </span>
-                                        </div>
-                                    <?php endif;?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-							<?php endforeach; ?>
+                            <?php endforeach; ?>
 
                             <div class="clearfix"></div>
                         </div>
                     </div>
-				<?php endif; ?>
+                <?php endif; ?>
 
                 <?php if ($viewedProducts): ?>
                     <div class="latestproducts">
                         <div class="product-one">
                             <h3>Недавно просмотренные товары:</h3>
-							<?php foreach ($viewedProducts as $item): ?>
+                            <?php foreach ($viewedProducts as $item): ?>
                                 <div class="col-md-4 product-left p-left">
                                     <div class="product-main simpleCart_shelfItem">
-                                        <a href="product/<?=$item['alias']; ?>" class="mask">
-                                            <img class="img-responsive zoom-img" src="images/<?=$item['img']; ?>" alt=""/>
+                                        <a href="product/<?= $item['alias']; ?>" class="mask">
+                                            <img class="img-responsive zoom-img" src="images/<?= $item['img']; ?>"
+                                                 alt=""/>
                                         </a>
                                         <div class="product-bottom">
-                                            <a href="product/<?=$item['alias']; ?>">
-                                                <h3><?=$item['title'];?></h3>
+                                            <a href="product/<?= $item['alias']; ?>">
+                                                <h3><?= $item['title']; ?></h3>
                                             </a>
 
-                                    <p>Explore Now</p>
-                                    <h4><a class=" item_add add-to-cart-link" href="cart/add?id=<?=$item['id']; ?>" data-id="<?=$item['id']; ?>"><i></i></a>
-                                        <span class=" item_price">
-                                            <?= $curr['symbol_left'] ?><?=$item['price'] * $curr['value']; ?><?= $curr['symbol_right'] ?>
+                                            <p>Explore Now</p>
+                                            <h4><a class=" item_add add-to-cart-link"
+                                                   href="cart/add?id=<?= $item['id']; ?>" data-id="<?= $item['id']; ?>"><i></i></a>
+                                                <span class=" item_price">
+                                            <?= $curr['symbol_left'] ?><?= $item['price'] * $curr['value']; ?><?= $curr['symbol_right'] ?>
 
                                         </span>
-	                                    <?php if($item['old_price']): ?>
-                                            <small><del><?= $curr['symbol_left'] ?><?= $item['old_price']* $curr['value']; ?><?= $curr['symbol_right'] ?></del></small>
-	                                    <?php endif; ?>
+                                                <?php if ($item['old_price']): ?>
+                                                    <small>
+                                                        <del><?= $curr['symbol_left'] ?><?= $item['old_price'] * $curr['value']; ?><?= $curr['symbol_right'] ?></del>
+                                                    </small>
+                                                <?php endif; ?>
                                             </h4>
                                         </div>
-                                        <?php if ($item['old_price']>0):?>
-                                        <div class="srch">
+                                        <?php if ($item['old_price'] > 0): ?>
+                                            <div class="srch">
                                             <span>
                                                 <?php
-	                                                $procent = $item['old_price'] * $curr['value']/100;
-	                                                $skidka = ($item['old_price']* $curr['value'] - $item['price']* $curr['value'])/$procent;
-	                                                echo number_format($skidka,1 );
-	                                                echo "%";
+                                                $procent = $item['old_price'] * $curr['value'] / 100;
+                                                $skidka = ($item['old_price'] * $curr['value'] - $item['price'] * $curr['value']) / $procent;
+                                                echo number_format($skidka, 1);
+                                                echo "%";
 
-                                                 ?>
+                                                ?>
                                             </span>
-                                        </div>
-                                    <?php endif;?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-							<?php endforeach; ?>
+                            <?php endforeach; ?>
 
                             <div class="clearfix"></div>
                         </div>
                     </div>
-				<?php endif; ?>
+                <?php endif; ?>
 
 
             </div>
