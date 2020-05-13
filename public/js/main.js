@@ -1,3 +1,32 @@
+/* Скрипт Корзины*/
+
+$('body').on('click', '.add-to-cart-link', function (e) {
+    e.preventDefault(); // Отключаем стандартный клик по ссылке, что бы не было перехода по ссылке
+    let id = $(this).data('id'),
+        quantity = $('.quantity input').val() ? $('.quantity input').val() : 1,
+        modification = $('.available select').val();
+    // console.log(id);
+    // console.log(quantity);
+    // console.log(modification);
+
+    $.ajax({
+        url: path + '/cart/add',
+        data: {id:id,qty:quantity,mod:modification},
+        type:'GET',
+        success:function (res) {
+            showCart(res);
+        },
+        error:function () {
+            alert('Ошибка. Попробуйте позже!');
+        }
+    });
+});
+
+function showCart(response){
+    console.log(response);
+}
+/* Конец Скрипта Корзины*/
+
 /* Скрипт для отображения стоимости товара при изменении цвета товара*/
 // Получаем базовую цену товара и старую цену товара
 let base_price = $('#base-price').data('base');
