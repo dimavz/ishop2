@@ -3,7 +3,7 @@
 <head>
     <base href="/"><!--   Специальный тэг для подстановки слэша в ссылки. Перед каждой ссылкой в атрибуде href  добавляется / -->
 	<?= $this->getMeta(); ?>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
     <!--Custom-Theme-files-->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -85,7 +85,6 @@
 </div>
 <!--bottom-header-->
 <div class="content">
-	<?= debug($_SESSION); ?>
 	<?= $this->content; ?>
 </div>
 <!--information-starts-->
@@ -153,6 +152,25 @@
     </div>
 </div>
 <!--footer-end-->
+
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Корзина</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+                <a href="cart/view" type="button" class="btn btn-primary">Оформить заказ</a>
+                <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
 <?php
 $curr = \ishop\App::$properties->getProperty('currency');
 ?>
@@ -163,6 +181,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
     let symbol_left = '<?=$curr['symbol_left']; ?>';
 </script>
 <script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!--<script src="js/simpleCart.min.js"></script> Закоменчен стандартный скрипт корзины идущий с шаблоном -->
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function () {

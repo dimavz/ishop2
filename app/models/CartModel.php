@@ -29,7 +29,7 @@ use ishop\App;
 class CartModel extends AppModel
 {
     public function addToCart($product, $qty = 1, $mod = null){
-//        echo 'Cart';
+
         if(!isset($_SESSION['cart.currency'])){
             $_SESSION['cart.currency'] = App::$properties->getProperty('currency');
         }
