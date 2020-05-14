@@ -78,4 +78,31 @@ class CartModel extends AppModel
         unset($_SESSION['cart.qty']);
         unset($_SESSION['cart.sum']);
     }
+
+    public static function recalc($curr){
+//        debug($curr);
+//        debug($_SESSION);
+//        die;
+        if(isset($_SESSION['cart.currency'])){
+            if($_SESSION['cart.currency']['base']){
+//                $_SESSION['cart.sum'] *= $curr->value;
+                $_SESSION['cart.sum'] *= $curr['value'];
+            }else{
+//                $_SESSION['cart.sum'] = $_SESSION['cart.sum'] / $_SESSION['cart.currency']['value'] * $curr->value;
+                $_SESSION['cart.sum'] = $_SESSION['cart.sum'] / $_SESSION['cart.currency']['value'] * $curr['value'];
+            }
+            foreach($_SESSION['cart'] as $k => $v){
+                if($_SESSION['cart.currency']['base']){
+//                    $_SESSION['cart'][$k]['price'] *= $curr->value;
+                    $_SESSION['cart'][$k]['price'] *= $curr['value'];
+                }else{
+//                    $_SESSION['cart'][$k]['price'] = $_SESSION['cart'][$k]['price'] / $_SESSION['cart.currency']['value'] * $curr->value;
+                    $_SESSION['cart'][$k]['price'] = $_SESSION['cart'][$k]['price'] / $_SESSION['cart.currency']['value'] * $curr['value'];
+                }
+            }
+            foreach($curr as $k => $v){
+                $_SESSION['cart.currency'][$k] = $v;
+            }
+        }
+    }
 }
