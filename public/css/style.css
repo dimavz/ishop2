@@ -3758,6 +3758,13 @@ h3.ghj {
     margin-bottom: 20px;
 }
 
+/*Корзина*/
 #cart table tbody img {
     width: 70px;
 }
+#cart table .del-item{
+    cursor: pointer;
+}
+/*Конец Корзина*/
+
+

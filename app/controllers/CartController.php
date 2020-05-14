@@ -39,4 +39,30 @@ class CartController extends AppController
         redirect();
     }
 
+    public function showAction(){
+        $this->loadView('cart_modal');
+    }
+
+    public function deleteAction(){
+        $id = !empty($_GET['id']) ? $_GET['id'] : null;
+        if(isset($_SESSION['cart'][$id])){
+            $cartModel = new CartModel();
+            $cartModel->deleteItem($id);
+        }
+        if($this->isAjax()){
+            $this->loadView('cart_modal');
+        }
+        redirect();
+    }
+    public function clearAction(){
+        if(isset($_SESSION['cart'])){
+            $cartModel = new CartModel();
+            $cartModel->clearAll();
+        }
+        if($this->isAjax()){
+            $this->loadView('cart_modal');
+        }
+        redirect();
+    }
+
 }

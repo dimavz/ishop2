@@ -11,26 +11,76 @@ $('body').on('click', '.add-to-cart-link', function (e) {
 
     $.ajax({
         url: path + '/cart/add',
-        data: {id:id,qty:quantity,mod:modification},
-        type:'GET',
-        success:function (res) {
+        data: {id: id, qty: quantity, mod: modification},
+        type: 'GET',
+        success: function (res) {
             showCart(res);
         },
-        error:function () {
+        error: function () {
             alert('Ошибка. Попробуйте позже!');
         }
     });
 });
 
-function showCart(response){
-    if($.trim(response) == '<h3>Корзина пуста</h3>'){
+$('#cart .modal-body').on('click', '.del-item', function(){
+    var id = $(this).data('id');
+    $.ajax({
+        url: '/cart/delete',
+        data: {id: id},
+        type: 'GET',
+        success: function(res){
+            showCart(res);
+        },
+        error: function(){
+            alert('Error!');
+        }
+    });
+});
+
+function showCart(response) {
+    if ($.trim(response) == '<h3>Корзина пуста</h3>') {
         $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'none');
-    }else{
+    } else {
         $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'inline-block');
     }
     $('#cart .modal-body').html(response);
     $('#cart').modal();
+    if ($('#cart .cart-sum').text()) {
+        $('.simpleCart_total').html($('#cart .cart-sum').text());
+    } else {
+        $('.simpleCart_total').text('Корзина пуста');
+    }
+
 }
+
+function getCart() {
+// console.log('Показ корзины');
+    $.ajax({
+        url: path + '/cart/show',
+        type: 'GET',
+        success: function (res) {
+            showCart(res);
+        },
+        error: function () {
+            alert('Ошибка. Попробуйте позже!');
+        }
+    });
+}
+
+function clearCart(){
+    // console.log('Очистка всей корзины');
+    $.ajax({
+        url: path + '/cart/clear',
+        type: 'GET',
+        success: function (res) {
+            showCart(res);
+        },
+        error: function () {
+            alert('Ошибка. Попробуйте позже!');
+        }
+    });
+}
+
 /* Конец Скрипта Корзины*/
 
 /* Скрипт для отображения стоимости товара при изменении цвета товара*/

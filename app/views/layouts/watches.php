@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="/"><!--   Специальный тэг для подстановки слэша в ссылки. Перед каждой ссылкой в атрибуде href  добавляется / -->
-	<?= $this->getMeta(); ?>
+    <base href="/">
+    <!--   Специальный тэг для подстановки слэша в ссылки. Перед каждой ссылкой в атрибуде href  добавляется / -->
+    <?= $this->getMeta(); ?>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
     <!--Custom-Theme-files-->
     <!--theme-style-->
@@ -14,7 +15,7 @@
     <!--start-menu-->
     <link href="css/megamenu/ionicons.min.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="css/megamenu/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
 </head>
 <body>
 <!--top-header-->
@@ -25,7 +26,7 @@
                 <div class="drop">
                     <div class="box">
                         <select id="currency" tabindex="4" class="dropdown drop">
-							<?php new \app\widgets\currency\Currency() ?>
+                            <?php new \app\widgets\currency\Currency() ?>
                         </select>
                     </div>
                     <div class="box1">
@@ -41,12 +42,23 @@
             </div>
             <div class="col-md-6 top-header-left">
                 <div class="cart box_1">
-                    <a href="checkout.html">
+<!--                    --><?php //session_destroy(); ?>
+                    <a href="cart/show" onclick="getCart(); return false">
                         <div class="total">
-                            <span class="simpleCart_total"></span></div>
-                        <img src="images/cart-1.png" alt=""/>
+                            <img src="images/cart-1.png" alt=""/>
+                            <?php if (!empty($_SESSION['cart'])): ?>
+                                <span class="simpleCart_total"><?=$_SESSION['cart.currency']['symbol_left'].$_SESSION['cart.sum'].$_SESSION['cart.currency']['symbol_right']?></span>
+                            <?php else: ?>
+                                <span class="simpleCart_total">Корзина пуста</span>
+                            <?php endif; ?>
+                        </div>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <!--                    <a href="checkout.html">-->
+                    <!--                        <div class="total">-->
+                    <!--                            <span class="simpleCart_total"></span></div>-->
+                    <!--                        <img src="images/cart-1.png" alt=""/>-->
+                    <!--                    </a>-->
+                    <!--                    <p><a href="javascript:;" class="simpleCart_empty">Корзина пуста</a></p>-->
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -67,7 +79,7 @@
             <div class="col-md-9 header-left">
                 <div class="menu-container">
                     <div class="menu">
-	                    <?php new \app\widgets\menu\Menu(['tpl'   => WWW . '/menu/menu.php',]); ?>
+                        <?php new \app\widgets\menu\Menu(['tpl' => WWW . '/menu/menu.php',]); ?>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -85,7 +97,7 @@
 </div>
 <!--bottom-header-->
 <div class="content">
-	<?= $this->content; ?>
+    <?= $this->content; ?>
 </div>
 <!--information-starts-->
 <div class="information">
@@ -158,7 +170,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel">Корзина</h4>
             </div>
             <div class="modal-body"></div>
@@ -216,7 +229,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
 <script defer src="js/jquery.flexslider.js"></script>
 <script>
     // Can also be used with $(document).ready()
-    $(window).load(function() {
+    $(window).load(function () {
         $('.flexslider').flexslider({
             animation: "slide",
             controlNav: "thumbnails"
@@ -225,22 +238,22 @@ $curr = \ishop\App::$properties->getProperty('currency');
 </script>
 <script src="js/jquery.easydropdown.js"></script>
 <script type="text/javascript">
-    $(function() {
+    $(function () {
 
         var menu_ul = $('.menu_drop > li > ul'),
-            menu_a  = $('.menu_drop > li > a');
+            menu_a = $('.menu_drop > li > a');
 
         menu_ul.hide();
 
-        menu_a.click(function(e) {
+        menu_a.click(function (e) {
             e.preventDefault();
-            if(!$(this).hasClass('active')) {
+            if (!$(this).hasClass('active')) {
                 menu_a.removeClass('active');
                 menu_ul.filter(':visible').slideUp('normal');
-                $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                $(this).addClass('active').next().stop(true, true).slideDown('normal');
             } else {
                 $(this).removeClass('active');
-                $(this).next().stop(true,true).slideUp('normal');
+                $(this).next().stop(true, true).slideUp('normal');
             }
         });
 
@@ -250,8 +263,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
 <script src="js/main.js"></script><!-- Файл для скриптов проекта -->
 <!--End-slider-script-->
 <?php
-if(!empty($logs))
-{
+if (!empty($logs)) {
     debug($logs->grep('SELECT'));
 }
 
