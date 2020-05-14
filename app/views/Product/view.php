@@ -73,25 +73,27 @@
                                 <?php endif; ?>
                             </h5>
                             <?= $product->content; ?>
+
                             <div class="available">
-                                <ul>
-                                    <li>Цвет
-                                        <select>
-                                            <option value="0">
-                                                Выбрать цвет
-                                            </option>
-                                            <?php if (!empty($modifications)): ?>
+                                <?php if (!empty($modifications)): ?>
+                                    <ul>
+                                        <li>Цвет
+                                            <select>
+                                                <option value="0">
+                                                    Выбрать цвет
+                                                </option>
                                                 <?php foreach ($modifications as $mod): ?>
                                                     <option data-title="<?= $mod->title; ?>"
                                                             data-price="<?= $mod->price * $curr['value']; ?>"
                                                             value="<?= $mod->id; ?>"><?= $mod->title; ?></option>
                                                 <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </select>
-                                    </li>
-                                    <div class="clearfix"></div>
-                                </ul>
+                                            </select>
+                                        </li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                <?php endif; ?>
                             </div>
+
                             <ul class="tag-men">
                                 <li><span>Категория</span>
                                     <span>: <a href="category/<?= $cats[$product->category_id]['alias']; ?>"><?= $cats[$product->category_id]['title']; ?></a></span>

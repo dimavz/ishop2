@@ -85,6 +85,7 @@
 </div>
 <!--bottom-header-->
 <div class="content">
+	<?= debug($_SESSION); ?>
 	<?= $this->content; ?>
 </div>
 <!--information-starts-->
@@ -162,7 +163,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
     let symbol_left = '<?=$curr['symbol_left']; ?>';
 </script>
 <script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/simpleCart.min.js"></script>
+<!--<script src="js/simpleCart.min.js"></script> Закоменчен стандартный скрипт корзины идущий с шаблоном -->
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function () {
         $(".memenu").memenu();

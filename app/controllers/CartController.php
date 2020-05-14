@@ -3,6 +3,7 @@
 
 namespace app\controllers;
 
+use app\models\CartModel;
 use RedBeanPHP\R as R;
 
 
@@ -29,7 +30,13 @@ class CartController extends AppController
             }
 
         }
-        die;
+        $cartModel = new CartModel();
+        $cartModel->addToCart($product,$qty,$mod);
+        if($this->isAjax())
+        {
+            $this->loadView('cart_modal');
+        }
+        redirect();
     }
 
 }
