@@ -53,12 +53,6 @@
                             <?php endif; ?>
                         </div>
                     </a>
-                    <!--                    <a href="checkout.html">-->
-                    <!--                        <div class="total">-->
-                    <!--                            <span class="simpleCart_total"></span></div>-->
-                    <!--                        <img src="images/cart-1.png" alt=""/>-->
-                    <!--                    </a>-->
-                    <!--                    <p><a href="javascript:;" class="simpleCart_empty">Корзина пуста</a></p>-->
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -86,9 +80,13 @@
             </div>
             <div class="col-md-3 header-right">
                 <div class="search-bar">
-                    <input type="text" value="Search" onfocus="this.value = '';"
-                           onblur="if (this.value == '') {this.value = 'Search';}">
-                    <input type="submit" value="">
+                    <form action="search" method="get" autocomplete="off">
+                        <input type="text" class="typeahead" id="typeahead" name="find" value="Найти" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Найти';}">
+                        <input type="submit" value="">
+                    </form>
+<!--                    <input type="text" value="Search" onfocus="this.value = '';"-->
+<!--                           onblur="if (this.value == '') {this.value = 'Search';}">-->
+<!--                    <input type="submit" value="">-->
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -195,6 +193,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
 </script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/typeahead.bundle.js"></script>
 <!--<script src="js/simpleCart.min.js"></script> Закоменчен стандартный скрипт корзины идущий с шаблоном -->
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function () {
