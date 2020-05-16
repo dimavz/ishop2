@@ -11,7 +11,7 @@ class SearchController extends AppController
             $query = !empty(trim($_GET['query'])) ? trim($_GET['query']) : null;
             if(!empty($query))
             {
-                $products = R::getAll('SELECT id, title FROM product WHERE title LIKE ? LIMIT 11',["%{$query}%"]);
+                $products = R::getAll('SELECT id, title FROM product WHERE title LIKE ? LIMIT 11',["%{$query}%"]); // Limit должен быть на 1 больше чем в параметре limit скрипта main.js
                 echo json_encode($products);
             }
         }

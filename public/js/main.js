@@ -11,17 +11,17 @@ var products = new Bloodhound({
 products.initialize();
 
 $("#typeahead").typeahead({
-    // hint: false,
-    highlight: true
-},{
-    name: 'products',
-    display: 'title',
-    limit: 10,
-    source: products
-});
+        // hint: false,
+        highlight: true
+    }, {
+        name: 'products',
+        display: 'title',
+        limit: 10, // Количество отбираемых элементов для поиска. Должно быть на 1 меньше чем в запросе отборки
+        source: products
+    });
 
-$('#typeahead').bind('typeahead:select', function(ev, suggestion) {
-    console.log(suggestion);
+$('#typeahead').bind('typeahead:select', function (ev, suggestion) {
+    // console.log(suggestion);
     window.location = path + '/search/?find=' + encodeURIComponent(suggestion.title);
 });
 /* End Search */
@@ -50,16 +50,16 @@ $('body').on('click', '.add-to-cart-link', function (e) {
     });
 });
 
-$('#cart .modal-body').on('click', '.del-item', function(){
+$('#cart .modal-body').on('click', '.del-item', function () {
     var id = $(this).data('id');
     $.ajax({
         url: '/cart/delete',
         data: {id: id},
         type: 'GET',
-        success: function(res){
+        success: function (res) {
             showCart(res);
         },
-        error: function(){
+        error: function () {
             alert('Error!');
         }
     });
@@ -95,7 +95,7 @@ function getCart() {
     });
 }
 
-function clearCart(){
+function clearCart() {
     // console.log('Очистка всей корзины');
     $.ajax({
         url: path + '/cart/clear',

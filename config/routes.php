@@ -13,6 +13,7 @@ use ishop\Router;
 //Router::add('^articles/?(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$\'',['controller'=>'articles','action'=>'view']);
 
 Router::add('^product/(?P<alias>[a-z0-9-]+)/?$',['controller'=>'Product','action'=>'view']);
+Router::add('^category/(?P<alias>[a-z0-9-]+)/?$', ['controller' => 'Category', 'action' => 'view']);
 
 // default routes administrator для админской части приложения
 Router::add('^admin$',['controller'=>'Main','action'=>'index', 'prefix'=>'admin']);

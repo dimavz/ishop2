@@ -65,7 +65,7 @@ class Router
 		{
 //			echo $pattern;
 //			debug($route);
-			if (preg_match("#{$pattern}#", $url, $matches))
+			if (preg_match("#{$pattern}#i", $url, $matches)) // Добавлен в патерн символ i, который означает регистронезависимый
 			{
 //				debug($matches);
 //				exit();
