@@ -5,15 +5,6 @@
             <ol class="breadcrumb">
                 <?php if (!empty($breadcrumbs)): ?>
                     <?php echo $breadcrumbs; ?>
-                <?php else: ?>
-                    <?php if (!empty($category)): ?>
-                        <li><a href="<?= PATH; ?>">Главная</a></li>
-                        <li>Категория: <?=$category->title?></li>
-                    <?php else: ?>
-                        <li><a href="<?= PATH; ?>">Главная</a></li>
-                        <li>Категория</li>
-                    <?php endif; ?>
-
                 <?php endif; ?>
             </ol>
         </div>
@@ -55,6 +46,12 @@
                             </div>
                         <?php endforeach; ?>
                         <div class="clearfix"></div>
+                        <div class="text-center">
+                            <p>Показано <?=count($products)?> из <?=$total;?></p>
+                            <?php if($pagination->countPages > 1): ?>
+                                <?=$pagination;?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 <?php else: ?>
                     <h3>В этой категории товаров пока нет...</h3>
