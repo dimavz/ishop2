@@ -1678,7 +1678,7 @@ a.mask {
     margin-top: 2.2em;
 }
 
-.account-left input[type="text"], .account-left input[type="password"] {
+.account-left input[type="text"], .account-left input[type="password"],.account-left input[type="email"] {
     width: 90%;
     margin: 0px;
     color: #000;
@@ -3863,5 +3863,15 @@ span.twitter-typeahead {
     top: 46px !important;
 }
 /*Конец Поиск (search) */
+
+/* Меню пользователя */
+.drop > .btn-group > a.dropdown-toggle{
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    top: -2px;
+}
+/* Конец Меню пользователя */
 
 
