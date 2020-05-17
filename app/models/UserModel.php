@@ -12,6 +12,22 @@ class UserModel extends AppModel {
             'email' => '',
             'address' => '',
         ];
+
+        $this->rules = [
+            'required' => [
+                ['login'],
+                ['password'],
+                ['name'],
+                ['email'],
+                ['address'],
+            ],
+            'email' => [
+                ['email'],
+            ],
+            'lengthMin' => [
+                ['password', 5],
+            ]
+        ];
         parent::__construct();
     }
 

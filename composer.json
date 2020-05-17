@@ -6,7 +6,8 @@
     }
   },
   "require": {
-    "gabordemooij/redbean": "dev-master"
+    "gabordemooij/redbean": "dev-master",
+    "vlucas/valitron": "^1.4"
   },
   "name": "ishop2/package_name",
   "description": "my first shop",
