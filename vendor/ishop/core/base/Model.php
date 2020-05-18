@@ -9,12 +9,14 @@
 namespace ishop\base;
 use ishop\Db;
 use Valitron\Validator;
+use RedBeanPHP\R as R;
 
 abstract class Model
 {
 	public $attributes = []; //Свойство для хранения массива свойств модели, который будет идентичен полям в таблице БД
 	public $errors = []; //Свойство для хранения массива ошибок
 	public $rules = []; //Свойство для хранения массива правил валидации данных
+    private $table; // Свойство для хранения наименования таблицы в БД
 
 	public function __construct()
 	{
@@ -27,6 +29,30 @@ abstract class Model
                 $this->attributes[$name] = $data[$name];
             }
         }
+    }
+
+    public function save($table=''){
+	    if(empty($table))
+        {
+            if(!empty($this->table))
+            {
+                $tbl = R::dispense($this->table);
+                foreach($this->attributes as $name => $value){
+                    $tbl->$name = $value;
+                }
+                return R::store($tbl);
+            }
+            $this->errors['table'][] = 'Пустое свойство table в модели!';
+            return false;
+        }
+	    else{
+            $tbl = R::dispense($table);
+            foreach($this->attributes as $name => $value){
+                $tbl->$name = $value;
+            }
+            return R::store($tbl);
+        }
+	    return false;
     }
 
     public function validate($data){
@@ -50,6 +76,10 @@ abstract class Model
         }
         $errors .= '</ul>';
         $_SESSION['error'] = $errors;
+    }
+
+    public function setTable($table){
+	    $this->table = $table;
     }
 
 }
