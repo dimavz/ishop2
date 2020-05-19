@@ -1,3 +1,5 @@
 /.idea/
 /tmp/cache/*
 /tmp/errors.log
+/vendor/vlucas/valitron/
+/public/js/typeahead.bundle.min.js
