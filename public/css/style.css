@@ -3890,3 +3890,7 @@ form .has-error .form-control{
 }
 /* Конец стилей для формы регистрации */
 
+/* Стили страницы профиля */
+.profile-info .form-group input {
+    border:none;
+}

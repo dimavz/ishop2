@@ -28,11 +28,25 @@ class UserController extends AppController {
     }
 
     public function loginAction(){
+        if(!empty($_POST)){
+            $userModel = new UserModel();
+            if($userModel->login()){
+                $_SESSION['success'] = 'Вы успешно авторизованы';
+            }else{
+                $_SESSION['error'] = 'Логин/пароль введены неверно';
+            }
+            redirect(PATH.'/user/profile');
+        }
+        $this->setMeta('Вход');
+    }
 
+    public function profileAction(){
+        $this->setMeta('Профиль пользователя');
     }
 
     public function logoutAction(){
-
+        if(isset($_SESSION['user'])) unset($_SESSION['user']);
+        redirect(PATH);
     }
 
 }
