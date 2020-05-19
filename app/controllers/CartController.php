@@ -4,6 +4,8 @@
 namespace app\controllers;
 
 use app\models\CartModel;
+use app\models\OrderModel;
+use app\models\UserModel;
 use RedBeanPHP\R as R;
 
 
@@ -54,6 +56,7 @@ class CartController extends AppController
         }
         redirect();
     }
+
     public function clearAction(){
         if(isset($_SESSION['cart'])){
             $cartModel = new CartModel();
@@ -61,6 +64,51 @@ class CartController extends AppController
         }
         if($this->isAjax()){
             $this->loadView('cart_modal');
+        }
+        redirect();
+    }
+
+    public function viewAction(){
+        $this->setMeta('Корзина');
+    }
+
+    public function checkoutAction(){
+        if(!empty($_POST)){
+            // регистрация пользователя
+            if(!UserModel::checkAuth()){
+                $userModel = new UserModel();
+                $data = $_POST;
+                $userModel->loadFormData($data);
+                if(!$userModel->validate($data) || !$userModel->checkUnique()){
+                    $userModel->getErrors();
+                    $_SESSION['singup_form_data'] = $data;
+                    redirect();
+                }else{
+                    $userModel->attributes['password'] = password_hash($userModel->attributes['password'], PASSWORD_DEFAULT);
+                    $user_id = null;
+                    if(!$user_id = $userModel->save('user')){
+                        $_SESSION['error'] = 'Ошибка!';
+                        redirect();
+                    }
+                    else{
+                        $_SESSION['user']['id'] = $user_id;
+                        foreach ($userModel->attributes as $k=>$v)
+                        {
+                            if($k != 'password')
+                            {
+                                $_SESSION['user'][$k] = $v;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // сохранение заказа
+            $data['user_id'] = isset($user_id) ? $user_id : $_SESSION['user']['id'];
+            $data['note'] = !empty($_POST['note']) ? $_POST['note'] : '';
+            $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
+            $order_id = OrderModel::saveOrder($data);
+            OrderModel::mailOrder($order_id, $user_email);
         }
         redirect();
     }

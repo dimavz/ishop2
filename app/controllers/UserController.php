@@ -15,8 +15,9 @@ class UserController extends AppController {
                 $_SESSION['singup_form_data'] = $data;
             }else{
                 $userModel->attributes['password'] = password_hash($userModel->attributes['password'], PASSWORD_DEFAULT);
-                $id = null;
-                if($id = $userModel->save()){
+                $user_id = null;
+                if($user_id = $userModel->save()){
+                    $_SESSION['user']['id'] = $user_id;
                     foreach ($userModel->attributes as $k=>$v)
                     {
                         if($k != 'password')
