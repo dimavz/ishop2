@@ -12,6 +12,7 @@ class UserController extends AppController {
             $userModel->loadFormData($data);
             if(!$userModel->validate($data) || !$userModel->checkUnique()){
                 $userModel->getErrors();
+                $_SESSION['singup_form_data'] = $data;
             }else{
                 $userModel->attributes['password'] = password_hash($userModel->attributes['password'], PASSWORD_DEFAULT);
                 if($userModel->save()){

@@ -221,6 +221,7 @@ $curr = \ishop\App::$properties->getProperty('currency');
 </script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/validator.min.js"></script>
 <script src="js/typeahead.bundle.js"></script>
 <!--<script src="js/simpleCart.min.js"></script> Закоменчен стандартный скрипт корзины идущий с шаблоном -->
 <script type="text/javascript" src="js/memenu.js"></script>
