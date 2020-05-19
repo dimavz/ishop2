@@ -15,8 +15,17 @@ class UserController extends AppController {
                 $_SESSION['singup_form_data'] = $data;
             }else{
                 $userModel->attributes['password'] = password_hash($userModel->attributes['password'], PASSWORD_DEFAULT);
-                if($userModel->save()){
+                $id = null;
+                if($id = $userModel->save()){
+                    foreach ($userModel->attributes as $k=>$v)
+                    {
+                        if($k != 'password')
+                        {
+                            $_SESSION['user'][$k] = $v;
+                        }
+                    }
                     $_SESSION['success'] = 'Пользователь зарегистрирован';
+                    redirect(PATH.'/user/profile');
                 }else{
                     $userModel->getErrors();
                     $_SESSION['error'] .= 'Ошибка регистрации!';
