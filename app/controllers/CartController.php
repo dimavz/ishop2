@@ -106,9 +106,20 @@ class CartController extends AppController
             // сохранение заказа
             $data['user_id'] = isset($user_id) ? $user_id : $_SESSION['user']['id'];
             $data['note'] = !empty($_POST['note']) ? $_POST['note'] : '';
-            $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
-            $order_id = OrderModel::saveOrder($data);
-            OrderModel::mailOrder($order_id, $user_email);
+            $data['currency'] = $_SESSION['cart.currency']['code'];
+            $orderModel = new OrderModel();
+            $orderModel->loadFormData($data);
+            $order_id = $orderModel->save();
+            if(!empty($order_id))
+            {
+                if(!$orderModel->saveOrderProduct($order_id)){
+                    $_SESSION['error'] = 'Ошибка сохранения данных заказа!';
+                    redirect();
+                }
+                $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
+                $orderModel->mailOrder($order_id, $user_email);
+            }
+//            $order_id = OrderModel::saveOrder($data);
         }
         redirect();
     }
