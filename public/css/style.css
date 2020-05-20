@@ -3895,3 +3895,9 @@ form .has-error .form-control{
     border:none;
 }
 /* Конец стилей страницы профиля */
+
+/* Стили оформления заказа */
+.product-one.cart .table-responsive tbody a img{
+    width: 70px;
+}
+/* Кнец стилей оформления заказа */
