@@ -24,7 +24,7 @@ class CurrencyController extends AppController
 		{
 			$currencies = App::$properties->getProperty('currencies');
 			$curr = $currencies[$currency];
-
+			$curr['code'] = $currency;
 //			$curr = R::findOne('currency','code=?',[$currency]);
 			if(!empty($curr))
 			{
