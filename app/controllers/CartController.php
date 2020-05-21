@@ -109,17 +109,10 @@ class CartController extends AppController
             $data['currency'] = $_SESSION['cart.currency']['code'];
             $orderModel = new OrderModel();
             $orderModel->loadFormData($data);
-            $order_id = $orderModel->save();
-            if(!empty($order_id))
-            {
-                if(!$orderModel->saveOrderProduct($order_id)){
-                    $_SESSION['error'] = 'Ошибка сохранения данных заказа!';
-                    redirect();
-                }
+            if($order_id = $orderModel->save()){
                 $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
                 $orderModel->mailOrder($order_id, $user_email);
             }
-//            $order_id = OrderModel::saveOrder($data);
         }
         redirect();
     }

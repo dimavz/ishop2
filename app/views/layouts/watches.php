@@ -123,6 +123,7 @@
             </div>
         </div>
     </div>
+    <?= debug($_SESSION); ?>
     <?= $this->content; ?>
 </div>
 <!--information-starts-->
