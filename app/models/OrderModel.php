@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use ishop\App;
 use RedBeanPHP\R;
 use Swift_Mailer;
 use Swift_Message;
@@ -27,28 +28,11 @@ class OrderModel extends AppModel
     {
         $orderID = parent::save($table);
         if ($this->saveOrderProduct($orderID)) {
-            $cartModel = new CartModel();
-            $cartModel->clearAll();
-//            unset($_SESSION['cart']);
-//            unset($_SESSION['cart.qty']);
-//            unset($_SESSION['cart.sum']);
             return $orderID;
         }
         $_SESSION['error'] = 'Ошибка сохранения товаров в заказе!';
         return false;
     }
-
-//    public static function saveOrder($data)
-//    {
-//        $orderID = null;
-//        $order = R::dispense('order');
-//        $order->user_id = $data['user_id'];
-//        $order->note = $data['note'];
-//        $order->currency = $_SESSION['cart.currency']['code'];
-//        $orderID = R::store($order);
-//        self::saveOrderProduct($orderID);
-//        return $orderID;
-//    }
 
     public function saveOrderProduct($orderID)
     {
@@ -69,9 +53,20 @@ class OrderModel extends AppModel
     public function mailOrder($orderID, $user_email)
     {
         // Create the Transport
-        $transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+//        $transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+        $server = App::$properties->getProperty('smtp_server');
+        $port = App::$properties->getProperty('smtp_port');
+        $protocol = App::$properties->getProperty('smtp_protocol');
+        $login = App::$properties->getProperty('smtp_login');
+        $password = App::$properties->getProperty('smtp_password');
+        $shop_name = App::$properties->getProperty('shop_name');
+        $admin_email = App::$properties->getProperty('admin_email');
 
-//        $transport = (new Swift_SmtpTransport('smtp.example.org', 25))
+        $transport = (new Swift_SmtpTransport($server, $port, $protocol))
+            ->setUsername($login)
+            ->setPassword($password);
+//
+//$transport = (new Swift_SmtpTransport('smtp.example.org', 25))
 //            ->setUsername('your username')
 //            ->setPassword('your password');
 
@@ -79,13 +74,29 @@ class OrderModel extends AppModel
         $mailer = new Swift_Mailer($transport);
 
 // Create a message
-        $message = (new Swift_Message('Wonderful Subject'))
-            ->setFrom(['john@doe.com' => 'John Doe'])
-            ->setTo(['receiver@domain.org', 'other@domain.org' => 'A name'])
-            ->setBody('Here is the message itself');
+        ob_start();
+        require APP . '/views/Mail/mail_order.php';
+        $body = ob_get_clean();
+
+        //        $message = (new Swift_Message("Сделан заказ №{$orderID}"))
+//            ->setFrom(['d.zatulenko@yandex.ru' => 'Дмитрий'])
+//            ->setTo(['zatulenko@gmail.com' =>'Дмитрий Затуленко'])
+//            ->setBody($body,'text/html');
+
+        $message_client = (new Swift_Message("Вы совершили заказ №{$orderID} на сайте " . $shop_name))
+            ->setFrom([$login => $shop_name])
+            ->setTo($user_email)
+            ->setBody($body, 'text/html');
+
+        $message_admin = (new Swift_Message("Сделан заказ №{$orderID}"))
+            ->setFrom([$login => $shop_name])
+            ->setTo($admin_email)
+            ->setBody($body, 'text/html');
 
 // Send the message
-        $result = $mailer->send($message);
+        $mailer->send($message_client);
+        $result = $mailer->send($message_admin);
+        return $result;
     }
 
 }

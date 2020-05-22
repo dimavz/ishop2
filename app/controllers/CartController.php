@@ -111,7 +111,12 @@ class CartController extends AppController
             $orderModel->loadFormData($data);
             if($order_id = $orderModel->save()){
                 $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
-                $orderModel->mailOrder($order_id, $user_email);
+                if ($orderModel->mailOrder($order_id, $user_email))
+                {
+                    $cartModel = new CartModel();
+                    $cartModel->clearAll();
+                    $_SESSION['success'] = 'Спасибо за Ваш заказ. В ближайшее время с Вами свяжется менеджер для согласования заказа';
+                }
             }
         }
         redirect();
