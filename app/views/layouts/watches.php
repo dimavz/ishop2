@@ -211,9 +211,8 @@
     </div>
 </div>
 <!-- End Modal -->
-<?php
-$curr = \ishop\App::$properties->getProperty('currency');
-?>
+<div class="preloader"><img src="images/ring.svg" alt=""></div>
+<?php $curr = \ishop\App::$properties->getProperty('currency');?>
 <script>
     let path = '<?=PATH;?>';
     let course = <?=$curr['value'];?>;
