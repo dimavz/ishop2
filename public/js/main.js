@@ -11,7 +11,7 @@ $('body').on('change', '.w_sidebar input', function(){
             url: location.href,
             data: {filter: data},
             type: 'GET',
-            beforeSend: function(){
+            beforeSend: function(){ // Перед отправкой запроса показываем прелоадер
                 $('.preloader').fadeIn(300, function(){ // Показываем прелоадер
                     $('.product-one').hide(); // и скрываем продукты
                 });
@@ -19,6 +19,25 @@ $('body').on('change', '.w_sidebar input', function(){
             success: function(res){
                 $('.preloader').delay(500).fadeOut('slow', function(){ // Скрываем прелоадер
                     $('.product-one').html(res).fadeIn(); //и показываем результат запроса
+                    //Определяем переменную url
+                    //обращаясь к объекту location и его методу search мы удаляем при помощи регулярного выражения строку /filter далее что угодно (.+?) до знака амперсанда или до конца строки (&|$)
+                    var url = location.search.replace(/filter(.+?)(&|$)/g, ''); //$2
+
+                    //Определяем переменную newURL
+                    //обращаясь к объекту location и его методу pathname мы добавляем url сформированный на предыдущем этапе
+                    //далее у нас идёт тернарный оператор при помощи которого мы смотрим имеется ли в объекте location метод search (location.search)
+                    //проще говоря имеются ли GET параметры в url
+                    //если таковые имеются, то мы их добавляем к текущим при помощи амперсанда (&), если нет, тогда мы добавляем знак (?)
+                    //в итоге тернарный оператор будет иметь вид (location.search ? "&" : "?")
+                    var newURL = location.pathname + url + (location.search ? "&" : "?") + "filter=" + data;
+
+                    // Возможна ситуация когда у нас может при манипуляциях с url появиться дублирующий амперсанд, поэтому заменяем его на одиночный
+                    newURL = newURL.replace('&&', '&');
+                    // А так же возможна ситуация когда у нас может при манипуляциях с url появиться вопрос и амперсанд, поэтому заменяем его на одиночный вопрос
+                    newURL = newURL.replace('?&', '?');
+
+                    // Метод pushState объекта history обновляет состояние url добавляя (или заменяя) его тем что храниться в newURL
+                    history.pushState({}, '', newURL);
                 });
             },
             error: function () {

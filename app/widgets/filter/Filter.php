@@ -51,4 +51,13 @@ class Filter{
         return $attrs;
     }
 
+    public static function getFilter(){
+        $filter = null;
+        if(!empty($_GET['filter'])){
+            $filter = preg_replace("#[^\d,]+#", '', $_GET['filter']); // Отбираем из данных фильтра только цифры и запятые, к примеру 1,4,5,
+            $filter = trim($filter, ','); // Обрезаем конечную запятую из данных фильтра
+        }
+        return $filter;
+    }
+
 }
