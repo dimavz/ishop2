@@ -1,3 +1,35 @@
+/* Filters */
+$('body').on('change', '.w_sidebar input', function(){
+    var checked = $('.w_sidebar input:checked'),
+        data = '';
+    checked.each(function () {
+        data += this.value + ',';
+    });
+    // console.log(data);
+    if(data){
+        $.ajax({
+            url: location.href,
+            data: {filter: data},
+            type: 'GET',
+            beforeSend: function(){
+                $('.preloader').fadeIn(300, function(){ // Показываем прелоадер
+                    $('.product-one').hide(); // и скрываем продукты
+                });
+            },
+            success: function(res){
+                $('.preloader').delay(500).fadeOut('slow', function(){ // Скрываем прелоадер
+                    $('.product-one').html(res).fadeIn(); //и показываем результат запроса
+                });
+            },
+            error: function () {
+                alert('Ошибка!');
+            }
+        });
+    }else{
+        window.location = location.pathname;
+    }
+});
+
 /* Search */
 var products = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
