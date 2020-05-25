@@ -2,6 +2,7 @@
 <html>
 <head>
     <base href="/">
+    <link rel="shortcut icon" href="images/star.png" type="image/png" />
     <!--   Специальный тэг для подстановки слэша в ссылки. Перед каждой ссылкой в атрибуде href  добавляется / -->
     <?= $this->getMeta(); ?>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
