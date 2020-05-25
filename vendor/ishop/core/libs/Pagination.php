@@ -76,6 +76,12 @@ class Pagination{
 
     public function getParams(){
         $url = $_SERVER['REQUEST_URI'];
+        // Решение проблемы с дублированием в get запросе переменной filter
+        preg_match_all("#filter=[\d,&]#", $url, $matches);
+        if(count($matches[0]) > 1){
+            $url = preg_replace("#filter=[\d,&]+#", "", $url, 1);
+        }
+        //
         $url = explode('?', $url);
         $uri = $url[0] . '?';
         if(isset($url[1]) && $url[1] != ''){
