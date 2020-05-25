@@ -3,7 +3,7 @@
 return [
 	'admin_email' => 'zatulenko@gmail.com',
 	'shop_name'=>'Магазин ishop2.loc',
-	'pagination'=>6,
+	'pagination'=>3,
 //	'smtp_mail'=>'d.zatulenko@yandex.ru',
 	'smtp_server'=>'smtp.yandex.ru',
 	'smtp_port'=>'465',

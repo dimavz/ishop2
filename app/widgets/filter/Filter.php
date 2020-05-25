@@ -25,7 +25,7 @@ class Filter{
         }
         $this->attrs = $cache->get('filter_attrs');
         if(!$this->attrs){
-            $this->attrs = $this->getAttrs();
+            $this->attrs = self::getAttrs();
             $cache->set('filter_attrs', $this->attrs, 30);
         }
         $filters = $this->getHtml();
@@ -46,7 +46,7 @@ class Filter{
         return R::getAssoc('SELECT id, title FROM attribute_group');
     }
 
-    protected function getAttrs(){
+    protected static function getAttrs(){
         $data = R::getAssoc('SELECT * FROM attribute_value');
         $attrs = [];
         foreach($data as $k => $v){
@@ -62,6 +62,25 @@ class Filter{
             $filter = trim($filter, ','); // Обрезаем конечную запятую из данных фильтра
         }
         return $filter;
+    }
+
+    public static function getCountGroups($filter){
+        $filters = explode(',', $filter);
+        $cache = Cache::getInstance();
+        $attrs = $cache->get('filter_attrs');
+        if(empty($attrs)){
+            $attrs = self::getAttrs();
+        }
+        $data = [];
+        foreach($attrs as $key => $item){
+            foreach($item as $k => $v){
+                if(in_array($k, $filters)){
+                    $data[] = $key;
+                    break;
+                }
+            }
+        }
+        return count($data);
     }
 
 }
