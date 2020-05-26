@@ -68,11 +68,11 @@ class View
             $fileLayout = APP . "/views/layouts/{$this->layout}.php";
             if (file_exists($fileLayout)) {
                 $this->metadata = $this->getMeta();
-                $logs = null;
-                if (DEBUG)
-                {
-                    $logs = R::getDatabaseAdapter()->getDatabase()->getLogger();
-                }
+//                $logs = null;
+//                if (DEBUG)
+//                {
+//                    $logs = R::getDatabaseAdapter()->getDatabase()->getLogger();
+//                }
                 require_once $fileLayout;
             } else {
                 //Файл НЕ существует
