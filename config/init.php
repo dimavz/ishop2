@@ -14,7 +14,7 @@ define("LAYOUT",'watches'); //Констатна для указания шаб�
 
 $app_path = "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}";
 define("PATH",$app_path); //Констатна для домена сайта
-define("ADMIN",PATH.'/administrator'); //Констатна для директории админки сайта
+define("ADMIN",PATH.'/admin'); //Констатна для директории админки сайта
 require_once ROOT.'/vendor/autoload.php'; //Подключаем автозагрузчик классов
 //http://ishop2.loc/public/index.php
 //$app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
