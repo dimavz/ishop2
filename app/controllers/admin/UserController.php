@@ -9,9 +9,7 @@ class UserController extends AppController {
     public function loginAdminAction(){
         if(!empty($_POST)){
             $user = new UserModel();
-            if($user->login(true)){
-                $_SESSION['success'] = 'Вы успешно авторизованы';
-            }else{
+            if(!$user->login(true)){
                 $_SESSION['error'] = 'Логин/пароль введены неверно';
             }
             if(UserModel::isAdmin()){
@@ -25,6 +23,6 @@ class UserController extends AppController {
 
     public function logoutAction(){
         if(isset($_SESSION['user'])) unset($_SESSION['user']);
-        redirect(PATH);
+        redirect(ADMIN);
     }
 }

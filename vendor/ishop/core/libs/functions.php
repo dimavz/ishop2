@@ -1,9 +1,10 @@
 <?php
 
-function debug($array){
+function debug($array,$die = false){
 	echo "<pre>";
 	echo print_r($array, true);
 	echo "</pre>";
+	if($die) die;
 }
 
 function redirect($http = false)
