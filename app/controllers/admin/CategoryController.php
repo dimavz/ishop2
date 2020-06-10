@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers\admin;
+use app\models\AppModel;
 use app\models\CategoryModel;
 use RedBeanPHP\R;
 
@@ -44,7 +45,12 @@ class CategoryController extends AppController {
                 redirect();
             }
             if($id = $category->save('category')){
-                $_SESSION['success'] = "Категория добавлена";
+                $alias = AppModel::createAlias('category', 'alias', $data['title'], $id);
+                $cat = R::load('category', $id);
+                $cat->alias = $alias;
+                $title = $cat->title;
+                R::store($cat);
+                $_SESSION['success'] = "Категория {$title} добавлена";
                 redirect(ADMIN.'/category');
             }
         }
