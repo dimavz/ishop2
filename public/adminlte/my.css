@@ -1,3 +1,4 @@
+/* Стили списка категорий */
 .list-group.list-group-root {
     padding: 0;
     overflow: hidden;
@@ -23,12 +24,22 @@
 .list-group.list-group-root > .list-group > .list-group > p > .list-group-item {
     padding-left: 45px;
 }
-.item-p{
+
+.item-p {
     margin: 0;
     position: relative;
+
 }
-.item-p > span{
+
+.item-p > span {
     position: absolute;
     right: 0;
     top: 0;
 }
+
+.item-p.top_parent a {
+    background-color: #1bd6a4;
+    color: yellow;
+}
+
+
