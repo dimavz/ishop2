@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 use app\models\AppModel;
 use app\models\CategoryModel;
+use ishop\App;
 use RedBeanPHP\R;
 
 class CategoryController extends AppController {
@@ -55,6 +56,33 @@ class CategoryController extends AppController {
             }
         }
         $this->setMeta('Новая категория');
+    }
+
+    public function editAction(){
+        if(!empty($_POST)){
+            $id = $this->getRequestID(false);
+            $category = new CategoryModel();
+            $data = $_POST;
+            $category->loadFormData($data);
+            if(!$category->validate($data)){
+                $category->getErrors();
+                redirect();
+            }
+            if($category->update('category', $id)){
+                $alias = AppModel::createAlias('category', 'alias', $data['title'], $id);
+                $category = R::load('category', $id);
+                $category->alias = $alias;
+                $title = $category->title;
+                R::store($category);
+                $_SESSION['success'] = "Изменения в категории {$title} сохранены";
+            }
+            redirect();
+        }
+        $id = $this->getRequestID();
+        $category = R::load('category', $id);
+        App::$properties->setProperty('parent_id', $category->parent_id);
+        $this->setMeta("Редактирование категории {$category->title}");
+        $this->setData(compact('category'));
     }
 
 }

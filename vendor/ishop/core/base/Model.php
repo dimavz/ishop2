@@ -55,6 +55,14 @@ abstract class Model
 	    return false;
     }
 
+    public function update($table, $id){
+        $bean = R::load($table, $id);
+        foreach($this->attributes as $name => $value){
+            $bean->$name = $value;
+        }
+        return R::store($bean);
+    }
+
     public function validate($data){
         Validator::langDir(WWW . '/validator/lang');
         Validator::lang('ru');
