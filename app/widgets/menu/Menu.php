@@ -77,11 +77,11 @@ class Menu
 		$this->menuHtml = $cache->get($this->cacheKey);
 		if (!$this->menuHtml)
 		{
-			$this->data = $cache->get($this->cacheKey.'.'.$this->table.'.data');
+			$this->data = $cache->get($this->cacheKey);
 			if (!$this->data)
 			{
 				$this->data = R::getAssoc("SELECT * FROM {$this->table}");
-                $cache->set($this->cacheKey.'.'.$this->table.'.data',$this->data,$this->cacheTime);
+                $cache->set($this->cacheKey,$this->data,$this->cacheTime);
 			}
 			$this->tree = $this->getTree();
 //			debug($this->tree);
